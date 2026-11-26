@@ -32,5 +32,5 @@ def test_summary_reads_naturally():
     f = {"stage": "adult", "sex": "female", "release_site": "Iles Kerguelen", "days_tracked": "236 days",
          "first_date": "Feb 6, 2022", "last_date": "Sep 30, 2022", "max_displacement_km": "2,710 km"}
     s = summary(f, "Southern elephant seal")
-    assert s.startswith("An adult female southern elephant seal, tagged at Iles Kerguelen.")
+    assert s.startswith("A female southern elephant seal, tagged as an adult at Iles Kerguelen.")
     assert "236 days" in s

@@ -47,7 +47,7 @@ export function renderCard(index: Index, row: AnimalRow, d: AnimalDetail): strin
   const photos = index.photos[String(row.sp)] ?? {};
   const ph = (row.sex && photos[row.sex]) || (row.stage === 'juvenile' && photos.juvenile) || photos.default;
   const src = index.sources[row.src];
-  const who = [row.stage, row.sex].filter(Boolean).join(' ');
+  const who = [row.sex, row.stage && `${row.stage} when tagged`].filter(Boolean).join(', ');
   const coarse = d.track.some((p) => p[5]);
   const iucn = sp.iucn && IUCN[sp.iucn];
 

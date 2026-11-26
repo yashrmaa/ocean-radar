@@ -17,6 +17,7 @@ import re
 
 import yaml
 
+from .derive import in_sentence
 from .util import STORIES, log, replace_table
 
 TOP_N = 50
@@ -29,9 +30,14 @@ def safe_id(animal_id: str) -> str:
 
 
 def summary(f: dict, common: str) -> str:
-    desc = " ".join(x for x in (f.get("stage"), f.get("sex"), common.lower()) if x)
+    desc = " ".join(x for x in (f.get("sex"), in_sentence(common)) if x)
     s = ("An " if desc[0] in "aeiou" else "A ") + desc
-    s += f", tagged at {f['release_site']}." if f.get("release_site") else "."
+    tagged = []
+    if f.get("stage"):
+        tagged.append(f"as {'an' if f['stage'][0] in 'aeiou' else 'a'} {f['stage']}")
+    if f.get("release_site"):
+        tagged.append(f"at {f['release_site']}")
+    s += (", tagged " + " ".join(tagged) + ".") if tagged else "."
     s += (f" Tracked for {f['days_tracked']}, from {f['first_date']} to {f['last_date']},"
           f" reaching {f['max_displacement_km']} from where tracking began.")
     if f.get("deepest_dive_m"):

@@ -33,6 +33,10 @@ button, input, select { font: inherit; color: inherit; }
 .top-left { top: 16px; left: 16px; width: 300px; padding: 12px 14px; display: grid; gap: 10px; }
 .brand { display: flex; align-items: center; justify-content: space-between; }
 .brand h1 { font-size: 16px; margin: 0; letter-spacing: 0.02em; }
+.brand-actions { display: flex; gap: 8px; align-items: center; }
+.filters-btn { display: none; background: #18223d; border: 1px solid var(--line); border-radius: 99px;
+  padding: 3px 11px; font-size: 12px; cursor: pointer; }
+.filters-btn[aria-expanded="true"] { background: #24345e; }
 .icon { background: #18223d; border: 1px solid var(--line); border-radius: 50%; width: 26px; height: 26px;
   display: grid; place-items: center; cursor: pointer; padding: 0; }
 .search { position: relative; }
@@ -97,6 +101,11 @@ button, input, select { font: inherit; color: inherit; }
 
 @media (max-width: 720px) {
   .top-left { right: 16px; width: auto; padding: 10px 12px; gap: 8px; }
+  /* Phones: group toggles fold away behind the Filters button so the map gets the screen. */
+  .filters-btn { display: inline-block; }
+  .top-left:not(.open) .groups, .top-left:not(.open) .mode { display: none; }
+  .timebar { flex-wrap: wrap; row-gap: 6px; }
+  .timebar #slider { order: 3; flex-basis: 100%; }
   .groups { grid-template-columns: 1fr 1fr; font-size: 12px; }
   .mode { font-size: 12px; }
   /* While a card is open on a phone, keep only the search box so the track stays visible. */

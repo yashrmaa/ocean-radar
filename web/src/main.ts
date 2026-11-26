@@ -185,7 +185,7 @@ async function main() {
   // Returning true marks the click handled, so the overlay's "empty map" handler doesn't run.
   const onPick = (info: PickingInfo) => {
     const i = animalAt(info);
-    if (i >= 0 && i !== state.selected) select(i);
+    if (i >= 0 && i !== state.selected) select(i, { fly: window.innerWidth <= 720 });
     return i >= 0;
   };
 
@@ -395,6 +395,12 @@ async function main() {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') { results.hidden = true; if (!$('about').hidden) $('about').hidden = true; else select(-1); }
     if (e.key === ' ' && document.activeElement === document.body) { e.preventDefault(); setPlaying(!state.playing); }
+  });
+
+  const filtersBtn = $('filters-btn');
+  filtersBtn.addEventListener('click', () => {
+    const open = $('controls').classList.toggle('open');
+    filtersBtn.setAttribute('aria-expanded', String(open));
   });
 
   $('about-body').innerHTML = renderAbout(index);
