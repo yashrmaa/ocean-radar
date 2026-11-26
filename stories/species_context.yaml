@@ -1,0 +1,78 @@
+# General, species-level knowledge that stories may cite. Never about an individual.
+# Each entry: id (referenced from stories), text (what the claim is), source (where it comes from).
+# Keep claims conservative and widely documented. Shown on cards in a distinct "typical for the
+# species" style with the source on hover.
+
+Dermochelys coriacea:
+  - id: leatherback.size
+    text: Leatherbacks are the largest living turtles.
+    source: https://en.wikipedia.org/wiki/Leatherback_sea_turtle
+  - id: leatherback.diet
+    text: Leatherbacks feed mainly on jellyfish.
+    source: https://en.wikipedia.org/wiki/Leatherback_sea_turtle
+
+Thunnus orientalis:
+  - id: pbft.crossing
+    text: Pacific bluefin tuna spawn in the western Pacific, and some young fish cross the ocean to feed off North America before returning west.
+    source: https://en.wikipedia.org/wiki/Pacific_bluefin_tuna
+
+Carcharodon carcharias:
+  - id: white.cafe
+    text: White sharks from the California coast travel offshore to a mid-Pacific area between California and Hawaii that researchers call the White Shark Café.
+    source: https://en.wikipedia.org/wiki/White_Shark_Caf%C3%A9
+
+Balaenoptera musculus:
+  - id: blue.size
+    text: Blue whales are the largest animals known to have lived.
+    source: https://en.wikipedia.org/wiki/Blue_whale
+  - id: blue.seasons
+    text: Blue whales in the eastern North Pacific feed off California in summer and autumn and move south for the winter.
+    source: https://en.wikipedia.org/wiki/Blue_whale
+
+Mirounga angustirostris:
+  - id: nes.trips
+    text: Northern elephant seals make two long feeding trips a year, coming ashore in between to breed and to moult.
+    source: https://en.wikipedia.org/wiki/Northern_elephant_seal
+
+Mirounga leonina:
+  - id: ses.size
+    text: Southern elephant seals are the largest seals, and adult males are several times heavier than females.
+    source: https://en.wikipedia.org/wiki/Southern_elephant_seal
+  - id: ses.diving
+    text: At sea, elephant seals dive almost continuously, spending only minutes at the surface between dives.
+    source: https://en.wikipedia.org/wiki/Southern_elephant_seal
+
+Histriophoca fasciata:
+  - id: ribbon.ice
+    text: Ribbon seals spend most of the year in open water and haul out on sea ice in spring to give birth and moult.
+    source: https://en.wikipedia.org/wiki/Ribbon_seal
+
+Erignathus barbatus:
+  - id: bearded.ice
+    text: Bearded seals live in Arctic and sub-Arctic waters with sea ice and feed mostly on the sea floor.
+    source: https://en.wikipedia.org/wiki/Bearded_seal
+
+Chelonia mydas:
+  - id: green.diet
+    text: Adult green turtles graze mainly on seagrass and algae.
+    source: https://en.wikipedia.org/wiki/Green_sea_turtle
+
+Lamna ditropis:
+  - id: salmon.warm
+    text: Salmon sharks keep their bodies warmer than the surrounding water, which lets them hunt in cold northern seas.
+    source: https://en.wikipedia.org/wiki/Salmon_shark
+
+Istiompax indica:
+  - id: black.range
+    text: Black marlin live in warm waters of the Indian and Pacific oceans and are among the largest bony fish.
+    source: https://en.wikipedia.org/wiki/Black_marlin
+
+Callorhinus ursinus:
+  - id: nfs.winter
+    text: Northern fur seals breed on islands in summer, mostly the Pribilof Islands, and spend the winter at sea.
+    source: https://en.wikipedia.org/wiki/Northern_fur_seal
+
+Thunnus thynnus:
+  - id: abft.warm
+    text: Atlantic bluefin tuna are warm-bodied fish that can cross the Atlantic, spawning mainly in the Gulf of Mexico and the Mediterranean.
+    source: https://en.wikipedia.org/wiki/Atlantic_bluefin_tuna

@@ -1,0 +1,31 @@
+{
+ "animal_id": "atn_topp:2605015",
+ "species": "Leatherback sea turtle",
+ "scientific_name": "Dermochelys coriacea",
+ "based_on": {
+  "last_date": "2006-10-22"
+ },
+ "facts": {
+  "first_date": "Jul 3, 2005",
+  "last_date": "Oct 22, 2006",
+  "days_tracked": "476 days",
+  "path_km": "12,840 km",
+  "max_displacement_km": "9,030 km",
+  "farthest_date": "Oct 22, 2006",
+  "northernmost_lat": "16.4°N",
+  "southernmost_lat": "0.3°S",
+  "species_rank_distance": "the third longest distance from its starting point among the 24 leatherback sea turtle tracks on this map"
+ },
+ "species_context": [
+  {
+   "id": "leatherback.size",
+   "text": "Leatherbacks are the largest living turtles.",
+   "source": "https://en.wikipedia.org/wiki/Leatherback_sea_turtle"
+  },
+  {
+   "id": "leatherback.diet",
+   "text": "Leatherbacks feed mainly on jellyfish.",
+   "source": "https://en.wikipedia.org/wiki/Leatherback_sea_turtle"
+  }
+ ]
+}

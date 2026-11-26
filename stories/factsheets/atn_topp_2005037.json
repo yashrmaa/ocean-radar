@@ -1,0 +1,26 @@
+{
+ "animal_id": "atn_topp:2005037",
+ "species": "Northern elephant seal",
+ "scientific_name": "Mirounga angustirostris",
+ "based_on": {
+  "last_date": "2006-03-07"
+ },
+ "facts": {
+  "first_date": "Jun 10, 2005",
+  "last_date": "Mar 7, 2006",
+  "days_tracked": "270 days",
+  "path_km": "11,550 km",
+  "max_displacement_km": "3,670 km",
+  "farthest_date": "Jul 31, 2005",
+  "northernmost_lat": "52.2°N",
+  "southernmost_lat": "36.7°N",
+  "species_rank_days": "the longest track among the 41 northern elephant seal tracks on this map"
+ },
+ "species_context": [
+  {
+   "id": "nes.trips",
+   "text": "Northern elephant seals make two long feeding trips a year, coming ashore in between to breed and to moult.",
+   "source": "https://en.wikipedia.org/wiki/Northern_elephant_seal"
+  }
+ ]
+}

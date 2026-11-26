@@ -1,0 +1,45 @@
+{
+ "animal_id": "imos:tu116-571-21",
+ "written_by": "Claude (Opus 5.5) in Claude Code, from the fact sheet",
+ "based_on": {
+  "last_date": "2023-05-16"
+ },
+ "sentences": [
+  {
+   "text": "This {stage} {sex} green turtle was tagged at {release_site} and tracked for {days_tracked}: {species_rank_days}.",
+   "facts": [
+    "stage",
+    "sex",
+    "release_site",
+    "days_tracked",
+    "species_rank_days"
+   ]
+  },
+  {
+   "text": "Adult green turtles graze mainly on seagrass and algae.",
+   "context": [
+    "green.diet"
+   ]
+  },
+  {
+   "text": "She stayed relatively close: her farthest position, on {farthest_date}, was {max_displacement_km} from where tracking began.",
+   "facts": [
+    "farthest_date",
+    "max_displacement_km"
+   ]
+  },
+  {
+   "text": "Her deepest recorded dive was {deepest_dive_m}, and her longest lasted {longest_dive_min}.",
+   "facts": [
+    "deepest_dive_m",
+    "longest_dive_min"
+   ]
+  },
+  {
+   "text": "Her last position is from {last_date}.",
+   "facts": [
+    "last_date"
+   ]
+  }
+ ]
+}

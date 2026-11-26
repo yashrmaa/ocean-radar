@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ocean Radar</title>
+  <meta name="description" content="Two decades of publicly tracked marine animals on one map. Press play, click an animal, read its record.">
+</head>
+<body>
+  <div id="map" aria-label="Map of tracked animals"></div>
+
+  <header class="panel top-left" id="controls">
+    <div class="brand">
+      <h1>Ocean Radar</h1>
+      <button class="icon" id="about-btn" aria-label="About this map" title="About">?</button>
+    </div>
+    <div class="search">
+      <input id="search" type="search" placeholder="Search species, tag, place" autocomplete="off" aria-label="Search animals">
+      <ul id="results" role="listbox" hidden></ul>
+    </div>
+    <div id="groups" class="groups" role="group" aria-label="Animal groups"></div>
+    <div class="mode" role="radiogroup" aria-label="View mode">
+      <label><input type="radio" name="mode" value="replay" checked> Replay</label>
+      <label><input type="radio" name="mode" value="last"> Last known positions</label>
+    </div>
+  </header>
+
+  <aside class="panel card" id="card" hidden aria-live="polite"></aside>
+
+  <section class="panel about" id="about" hidden>
+    <button class="icon close" data-close="about" aria-label="Close">✕</button>
+    <h2>About this map</h2>
+    <div id="about-body"></div>
+  </section>
+
+  <footer class="panel timebar">
+    <button id="play" class="play" aria-label="Pause">❚❚</button>
+    <div class="time">
+      <span id="date" class="date"></span>
+      <span id="count" class="count"></span>
+    </div>
+    <input id="slider" type="range" min="0" step="1" aria-label="Time">
+    <select id="speed" aria-label="Playback speed">
+      <option value="15">Slow</option>
+      <option value="45" selected>Normal</option>
+      <option value="150">Fast</option>
+    </select>
+  </footer>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

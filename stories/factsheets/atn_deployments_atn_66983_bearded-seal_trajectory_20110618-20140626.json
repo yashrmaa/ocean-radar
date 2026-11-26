@@ -1,0 +1,29 @@
+{
+ "animal_id": "atn_deployments:atn_66983_bearded-seal_trajectory_20110618-20140626",
+ "species": "Bearded seal",
+ "scientific_name": "Erignathus barbatus",
+ "based_on": {
+  "last_date": "2014-05-24"
+ },
+ "facts": {
+  "first_date": "Nov 15, 2011",
+  "last_date": "May 24, 2014",
+  "days_tracked": "920 days",
+  "path_km": "12,110 km",
+  "max_displacement_km": "2,860 km",
+  "farthest_date": "Feb 1, 2013",
+  "northernmost_lat": "72.7°N",
+  "southernmost_lat": "53.7°N",
+  "longest_gap_days": "250 days",
+  "sex": "male",
+  "stage": "subadult",
+  "species_rank_days": "the second longest track among the 38 bearded seal tracks on this map"
+ },
+ "species_context": [
+  {
+   "id": "bearded.ice",
+   "text": "Bearded seals live in Arctic and sub-Arctic waters with sea ice and feed mostly on the sea floor.",
+   "source": "https://en.wikipedia.org/wiki/Bearded_seal"
+  }
+ ]
+}

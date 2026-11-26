@@ -1,0 +1,12 @@
+data/
+web/node_modules/
+web/dist/
+web/public/data/
+spike/raw/
+.venv/
+__pycache__/
+*.pyc
+.claude/
+spike/radar.html
+spike/tracks.json
+.DS_Store

@@ -1,0 +1,35 @@
+{
+ "animal_id": "atn_topp:1005066",
+ "written_by": "Claude (Opus 5.5) in Claude Code, from the fact sheet",
+ "based_on": {
+  "last_date": "2007-08-24"
+ },
+ "sentences": [
+  {
+   "text": "This Pacific bluefin tuna carried its tag for {days_tracked}, from {first_date} to {last_date}.",
+   "facts": [
+    "days_tracked",
+    "first_date",
+    "last_date"
+   ]
+  },
+  {
+   "text": "Pacific bluefin tuna spawn in the western Pacific, and some young fish cross the ocean to feed off North America before returning west.",
+   "context": [
+    "pbft.crossing"
+   ]
+  },
+  {
+   "text": "By {farthest_date} it was {max_displacement_km} from where its track began: {species_rank_distance}.",
+   "facts": [
+    "farthest_date",
+    "max_displacement_km",
+    "species_rank_distance"
+   ]
+  },
+  {
+   "text": "What the tuna did after its tag stopped reporting isn't known.",
+   "framing": true
+  }
+ ]
+}

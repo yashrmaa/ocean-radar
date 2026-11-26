@@ -1,0 +1,33 @@
+# License registry. Drives what may be published.
+# redistribution: allowed | non_commercial | permission_required
+# Only `allowed` and `non_commercial` sources are published; non_commercial keeps the whole site
+# non-commercial. Set `enabled: false` to switch a source off (e.g. if a provider asks).
+
+atn_topp:
+  name: Tagging of Pacific Predators (Stanford) via U.S. IOOS Animal Telemetry Network
+  url: https://atn.ioos.us/
+  license: Free use and redistribution (U.S. Government data)
+  license_url: https://atn.ioos.us/erddap/info/stanford_import_ssm_public/index.html
+  redistribution: allowed
+  enabled: true
+  notes: Daily state-space-model positions. Checked 2026-11-25 (license attribute in dataset metadata).
+
+atn_deployments:
+  name: U.S. IOOS Animal Telemetry Network, per-deployment Argos datasets
+  url: https://atn.ioos.us/
+  license: Free use and redistribution (U.S. Government data); cite each dataset
+  license_url: https://atn.ioos.us/erddap/
+  redistribution: allowed
+  enabled: true
+  notes: Each dataset carries its own citation; shown on the animal card. Checked 2026-11-25.
+
+imos:
+  name: IMOS Animal Tracking Facility (AATAMS) via the Australian Ocean Data Network
+  url: https://portal.aodn.org.au/
+  license: CC BY 4.0
+  license_url: https://creativecommons.org/licenses/by/4.0/
+  redistribution: allowed
+  enabled: true
+  notes: >
+    data.gov.au lists AATAMS satellite relay tagging as CC BY 4.0; confirm the exact attribution
+    wording IMOS asks for (IMOS acknowledgement statement) before public launch.

@@ -1,0 +1,20 @@
+{
+ "animal_id": "atn_topp:1604006",
+ "species": "Blue shark",
+ "scientific_name": "Prionace glauca",
+ "based_on": {
+  "last_date": "2005-09-24"
+ },
+ "facts": {
+  "first_date": "Oct 11, 2004",
+  "last_date": "Sep 24, 2005",
+  "days_tracked": "348 days",
+  "path_km": "11,040 km",
+  "max_displacement_km": "2,220 km",
+  "farthest_date": "Jul 25, 2005",
+  "northernmost_lat": "33.9°N",
+  "southernmost_lat": "4.1°N",
+  "species_rank_days": "the longest track among the 52 blue shark tracks on this map"
+ },
+ "species_context": []
+}

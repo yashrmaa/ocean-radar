@@ -1,0 +1,26 @@
+{
+ "animal_id": "atn_topp:5103546",
+ "species": "Atlantic bluefin tuna",
+ "scientific_name": "Thunnus thynnus",
+ "based_on": {
+  "last_date": "2004-08-10"
+ },
+ "facts": {
+  "first_date": "Jan 25, 2003",
+  "last_date": "Aug 10, 2004",
+  "days_tracked": "563 days",
+  "path_km": "36,650 km",
+  "max_displacement_km": "5,530 km",
+  "farthest_date": "May 1, 2004",
+  "northernmost_lat": "53.5°N",
+  "southernmost_lat": "26.6°N",
+  "species_rank_distance": "the longest distance from its starting point among the 135 Atlantic bluefin tuna tracks on this map"
+ },
+ "species_context": [
+  {
+   "id": "abft.warm",
+   "text": "Atlantic bluefin tuna are warm-bodied fish that can cross the Atlantic, spawning mainly in the Gulf of Mexico and the Mediterranean.",
+   "source": "https://en.wikipedia.org/wiki/Atlantic_bluefin_tuna"
+  }
+ ]
+}

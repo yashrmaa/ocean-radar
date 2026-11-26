@@ -1,0 +1,30 @@
+{
+ "animal_id": "atn_deployments:atn_74653_ribbon-seal_trajectory_20070518-20100426",
+ "species": "Ribbon seal",
+ "scientific_name": "Histriophoca fasciata",
+ "based_on": {
+  "last_date": "2010-04-25"
+ },
+ "facts": {
+  "first_date": "May 25, 2007",
+  "last_date": "Apr 25, 2010",
+  "days_tracked": "1066 days",
+  "path_km": "9,720 km",
+  "max_displacement_km": "2,390 km",
+  "farthest_date": "Oct 1, 2007",
+  "northernmost_lat": "79.0°N",
+  "southernmost_lat": "58.1°N",
+  "longest_gap_days": "317 days",
+  "sex": "female",
+  "stage": "adult",
+  "species_rank_days": "the longest track among the 129 ribbon seal tracks on this map",
+  "species_rank_distance": "the second longest distance from its starting point among the 129 ribbon seal tracks on this map"
+ },
+ "species_context": [
+  {
+   "id": "ribbon.ice",
+   "text": "Ribbon seals spend most of the year in open water and haul out on sea ice in spring to give birth and moult.",
+   "source": "https://en.wikipedia.org/wiki/Ribbon_seal"
+  }
+ ]
+}

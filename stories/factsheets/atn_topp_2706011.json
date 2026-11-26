@@ -1,0 +1,21 @@
+{
+ "animal_id": "atn_topp:2706011",
+ "species": "Loggerhead sea turtle",
+ "scientific_name": "Caretta caretta",
+ "based_on": {
+  "last_date": "2007-08-03"
+ },
+ "facts": {
+  "first_date": "Aug 30, 2006",
+  "last_date": "Aug 3, 2007",
+  "days_tracked": "338 days",
+  "path_km": "5,940 km",
+  "max_displacement_km": "3,240 km",
+  "farthest_date": "Aug 3, 2007",
+  "northernmost_lat": "26.8°N",
+  "southernmost_lat": "21.8°N",
+  "species_rank_days": "the longest track among the 13 loggerhead sea turtle tracks on this map",
+  "species_rank_distance": "the longest distance from its starting point among the 13 loggerhead sea turtle tracks on this map"
+ },
+ "species_context": []
+}

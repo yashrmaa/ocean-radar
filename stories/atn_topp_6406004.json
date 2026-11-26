@@ -1,0 +1,43 @@
+{
+ "animal_id": "atn_topp:6406004",
+ "written_by": "Claude (Opus 5.5) in Claude Code, from the fact sheet",
+ "based_on": {
+  "last_date": "2007-03-25"
+ },
+ "sentences": [
+  {
+   "text": "This northern fur seal was tracked from {first_date} to {last_date}, a span of {days_tracked}.",
+   "facts": [
+    "first_date",
+    "last_date",
+    "days_tracked"
+   ]
+  },
+  {
+   "text": "Northern fur seals breed on islands in summer, mostly the Pribilof Islands, and spend the winter at sea.",
+   "context": [
+    "nfs.winter"
+   ]
+  },
+  {
+   "text": "Its track runs from {northernmost_lat} down to {southernmost_lat}.",
+   "facts": [
+    "northernmost_lat",
+    "southernmost_lat"
+   ]
+  },
+  {
+   "text": "It was farthest from where its track began, {max_displacement_km} away, on {farthest_date}, just days before the record ends.",
+   "facts": [
+    "max_displacement_km",
+    "farthest_date"
+   ]
+  },
+  {
+   "text": "That is {species_rank_distance}.",
+   "facts": [
+    "species_rank_distance"
+   ]
+  }
+ ]
+}

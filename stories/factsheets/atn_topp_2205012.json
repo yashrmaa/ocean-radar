@@ -1,0 +1,32 @@
+{
+ "animal_id": "atn_topp:2205012",
+ "species": "Blue whale",
+ "scientific_name": "Balaenoptera musculus",
+ "based_on": {
+  "last_date": "2006-04-11"
+ },
+ "facts": {
+  "first_date": "Aug 18, 2005",
+  "last_date": "Apr 11, 2006",
+  "days_tracked": "236 days",
+  "path_km": "10,890 km",
+  "max_displacement_km": "4,310 km",
+  "farthest_date": "Feb 1, 2006",
+  "northernmost_lat": "37.0°N",
+  "southernmost_lat": "8.2°N",
+  "species_rank_days": "the second longest track among the 21 blue whale tracks on this map",
+  "species_rank_distance": "the longest distance from its starting point among the 21 blue whale tracks on this map"
+ },
+ "species_context": [
+  {
+   "id": "blue.size",
+   "text": "Blue whales are the largest animals known to have lived.",
+   "source": "https://en.wikipedia.org/wiki/Blue_whale"
+  },
+  {
+   "id": "blue.seasons",
+   "text": "Blue whales in the eastern North Pacific feed off California in summer and autumn and move south for the winter.",
+   "source": "https://en.wikipedia.org/wiki/Blue_whale"
+  }
+ ]
+}

@@ -1,0 +1,73 @@
+name: Build site
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 6 * * 1"   # Mondays 06:00 UTC: re-download sources and rebuild
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    permissions:
+      contents: write   # to update the "site" release
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v5
+
+      - name: Restore downloaded source data
+        uses: actions/cache@v4
+        with:
+          path: data/raw
+          key: raw-${{ github.run_id }}
+          restore-keys: raw-
+
+      - name: Build data (pipeline)
+        run: |
+          uv sync --frozen
+          # Scheduled runs re-download every source; pushes reuse the cache.
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            uv run python -m pipeline.build --refresh
+          else
+            uv run python -m pipeline.build
+          fi
+
+      - name: Check published data (embargo, licenses, stories)
+        run: uv run pytest -q
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Build site
+        run: |
+          npm --prefix web ci
+          npm --prefix web run build
+
+      - name: Package site
+        run: tar -czf oceanradar-site.tar.gz -C web/dist .
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: oceanradar-site.tar.gz
+          retention-days: 7
+
+      # yasharma.com's own build downloads this file into /oceanrader/.
+      - name: Publish site bundle (release "site")
+        if: github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view site >/dev/null 2>&1 || \
+            gh release create site --title "Site bundle" --notes "Built site, replaced on every build. Served at yasharma.com/oceanrader/." --latest=false
+          gh release upload site oceanradar-site.tar.gz --clobber

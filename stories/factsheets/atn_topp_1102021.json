@@ -1,0 +1,21 @@
+{
+ "animal_id": "atn_topp:1102021",
+ "species": "Yellowfin tuna",
+ "scientific_name": "Thunnus albacares",
+ "based_on": {
+  "last_date": "2004-04-23"
+ },
+ "facts": {
+  "first_date": "Oct 14, 2002",
+  "last_date": "Apr 23, 2004",
+  "days_tracked": "557 days",
+  "path_km": "9,610 km",
+  "max_displacement_km": "2,420 km",
+  "farthest_date": "Mar 17, 2004",
+  "northernmost_lat": "27.0°N",
+  "southernmost_lat": "3.6°N",
+  "species_rank_days": "the second longest track among the 225 yellowfin tuna tracks on this map",
+  "species_rank_distance": "the longest distance from its starting point among the 225 yellowfin tuna tracks on this map"
+ },
+ "species_context": []
+}

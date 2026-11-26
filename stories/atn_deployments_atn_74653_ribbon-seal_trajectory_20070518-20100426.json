@@ -1,0 +1,43 @@
+{
+ "animal_id": "atn_deployments:atn_74653_ribbon-seal_trajectory_20070518-20100426",
+ "written_by": "Claude (Opus 5.5) in Claude Code, from the fact sheet",
+ "based_on": {
+  "last_date": "2010-04-25"
+ },
+ "sentences": [
+  {
+   "text": "This {stage} {sex} ribbon seal carried her tag for {days_tracked}, from {first_date} to {last_date}: {species_rank_days}.",
+   "facts": [
+    "stage",
+    "sex",
+    "days_tracked",
+    "first_date",
+    "last_date",
+    "species_rank_days"
+   ]
+  },
+  {
+   "text": "Ribbon seals spend most of the year in open water and haul out on sea ice in spring to give birth and moult.",
+   "context": [
+    "ribbon.ice"
+   ]
+  },
+  {
+   "text": "On {farthest_date} she was {max_displacement_km} from where her track began.",
+   "facts": [
+    "farthest_date",
+    "max_displacement_km"
+   ]
+  },
+  {
+   "text": "Her record also holds a long silence: {longest_gap_days} with no positions at all.",
+   "facts": [
+    "longest_gap_days"
+   ]
+  },
+  {
+   "text": "Why the tag went quiet isn't recorded. The map shows the gap as a dashed line, not a guessed route.",
+   "framing": true
+  }
+ ]
+}

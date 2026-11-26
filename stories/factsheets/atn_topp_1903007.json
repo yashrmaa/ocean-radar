@@ -1,0 +1,26 @@
+{
+ "animal_id": "atn_topp:1903007",
+ "species": "White shark",
+ "scientific_name": "Carcharodon carcharias",
+ "based_on": {
+  "last_date": "2004-06-23"
+ },
+ "facts": {
+  "first_date": "Oct 27, 2003",
+  "last_date": "Jun 23, 2004",
+  "days_tracked": "240 days",
+  "path_km": "9,260 km",
+  "max_displacement_km": "4,580 km",
+  "farthest_date": "Mar 22, 2004",
+  "northernmost_lat": "38.0°N",
+  "southernmost_lat": "13.8°N",
+  "species_rank_distance": "the third longest distance from its starting point among the 42 white shark tracks on this map"
+ },
+ "species_context": [
+  {
+   "id": "white.cafe",
+   "text": "White sharks from the California coast travel offshore to a mid-Pacific area between California and Hawaii that researchers call the White Shark Café.",
+   "source": "https://en.wikipedia.org/wiki/White_Shark_Caf%C3%A9"
+  }
+ ]
+}

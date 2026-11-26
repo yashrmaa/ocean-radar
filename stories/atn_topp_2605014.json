@@ -1,0 +1,54 @@
+{
+ "animal_id": "atn_topp:2605014",
+ "written_by": "Claude (Opus 5.5) in Claude Code, from the fact sheet",
+ "based_on": {
+  "last_date": "2006-12-20"
+ },
+ "sentences": [
+  {
+   "text": "This leatherback's tag first reported on {first_date} and kept reporting for {days_tracked}.",
+   "facts": [
+    "first_date",
+    "days_tracked"
+   ]
+  },
+  {
+   "text": "Leatherbacks are the largest living turtles.",
+   "context": [
+    "leatherback.size"
+   ]
+  },
+  {
+   "text": "Over that time it ended up {max_displacement_km} from where its track began, {species_rank_distance}.",
+   "facts": [
+    "max_displacement_km",
+    "species_rank_distance"
+   ]
+  },
+  {
+   "text": "Its positions range from {northernmost_lat} down to {southernmost_lat}, just south of the equator.",
+   "facts": [
+    "northernmost_lat",
+    "southernmost_lat"
+   ]
+  },
+  {
+   "text": "It reached its farthest point on {farthest_date}.",
+   "facts": [
+    "farthest_date"
+   ]
+  },
+  {
+   "text": "Leatherbacks feed mainly on jellyfish.",
+   "context": [
+    "leatherback.diet"
+   ]
+  },
+  {
+   "text": "The last position came on {last_date}. Where the turtle went after that isn't recorded.",
+   "facts": [
+    "last_date"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,21 @@
+{
+ "animal_id": "atn_topp:5415005",
+ "species": "Striped marlin",
+ "scientific_name": "Kajikia audax",
+ "based_on": {
+  "last_date": "2016-04-24"
+ },
+ "facts": {
+  "first_date": "Sep 17, 2015",
+  "last_date": "Apr 24, 2016",
+  "days_tracked": "220 days",
+  "path_km": "9,230 km",
+  "max_displacement_km": "3,730 km",
+  "farthest_date": "Apr 20, 2016",
+  "northernmost_lat": "34.0°N",
+  "southernmost_lat": "13.3°N",
+  "species_rank_days": "the second longest track among the 13 striped marlin tracks on this map",
+  "species_rank_distance": "the second longest distance from its starting point among the 13 striped marlin tracks on this map"
+ },
+ "species_context": []
+}

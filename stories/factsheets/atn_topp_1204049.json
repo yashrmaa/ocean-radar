@@ -1,0 +1,21 @@
+{
+ "animal_id": "atn_topp:1204049",
+ "species": "Albacore tuna",
+ "scientific_name": "Thunnus alalunga",
+ "based_on": {
+  "last_date": "2005-09-01"
+ },
+ "facts": {
+  "first_date": "Aug 19, 2004",
+  "last_date": "Sep 1, 2005",
+  "days_tracked": "378 days",
+  "path_km": "12,990 km",
+  "max_displacement_km": "4,120 km",
+  "farthest_date": "Mar 31, 2005",
+  "northernmost_lat": "35.1°N",
+  "southernmost_lat": "28.4°N",
+  "species_rank_days": "the second longest track among the 22 albacore tuna tracks on this map",
+  "species_rank_distance": "the longest distance from its starting point among the 22 albacore tuna tracks on this map"
+ },
+ "species_context": []
+}

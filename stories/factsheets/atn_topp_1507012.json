@@ -1,0 +1,20 @@
+{
+ "animal_id": "atn_topp:1507012",
+ "species": "Shortfin mako shark",
+ "scientific_name": "Isurus oxyrinchus",
+ "based_on": {
+  "last_date": "2008-08-13"
+ },
+ "facts": {
+  "first_date": "Jul 26, 2007",
+  "last_date": "Aug 13, 2008",
+  "days_tracked": "384 days",
+  "path_km": "18,270 km",
+  "max_displacement_km": "2,590 km",
+  "farthest_date": "Feb 28, 2008",
+  "northernmost_lat": "32.9°N",
+  "southernmost_lat": "14.3°N",
+  "species_rank_distance": "the third longest distance from its starting point among the 43 shortfin mako shark tracks on this map"
+ },
+ "species_context": []
+}

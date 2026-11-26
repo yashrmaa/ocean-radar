@@ -1,0 +1,17 @@
+# Which species get the stricter embargo and coordinate coarsening.
+#
+# By default a species is sensitive when its IUCN Red List status is VU, EN or CR.
+# Statuses come from Wikidata (property P141), which mirrors the Red List; they're cached in
+# data/raw/species_cache.json. Check important ones against iucnredlist.org.
+#
+# override: scientific name -> true/false, to force a species either way
+#   (for example a threatened local population of a species that is Least Concern globally).
+
+embargo_days:
+  default: 90
+  sensitive: 365
+coarsen:
+  degrees: 0.5          # round coordinates to this grid for sensitive species ...
+  buffer_days: 365      # ... for positions up to this many days older than the embargo cut
+
+override: {}

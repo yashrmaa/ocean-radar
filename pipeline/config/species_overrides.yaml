@@ -1,0 +1,30 @@
+# Fixes for species labels the sources get wrong or leave without a scientific name.
+#
+# label_to_scientific: source common-name label (case-insensitive) -> scientific name.
+#   Used when a source gives no scientific name (IMOS) or a bad one.
+# common_name: scientific name -> display common name (otherwise the most frequent label wins).
+# photo: scientific name -> {variant: Commons file title}; variants: default, female, male, juvenile.
+
+label_to_scientific:
+  southern elephant seal: Mirounga leonina
+  weddell seal: Leptonychotes weddellii
+  olive ridley turtle: Lepidochelys olivacea
+  flatback turtle: Natator depressus
+  green turtle: Chelonia mydas
+  northern fur seal: Callorhinus ursinus     # TOPP spells it "Callorhrinus"
+
+common_name:
+  Carcharodon carcharias: White shark
+  Thunnus orientalis: Pacific bluefin tuna
+  Thunnus thynnus: Atlantic bluefin tuna
+  Thunnus albacares: Yellowfin tuna
+  Thunnus alalunga: Albacore tuna
+  Dermochelys coriacea: Leatherback sea turtle
+  Caretta caretta: Loggerhead sea turtle
+  Lepidochelys olivacea: Olive ridley turtle
+  Chelonia mydas: Green turtle
+  Natator depressus: Flatback turtle
+
+photo:
+  Mirounga leonina:
+    female: "File:Elephantseal female.jpg"

@@ -1,0 +1,23 @@
+{
+ "animal_id": "atn_deployments:atn_99295_spotted-seal_trajectory_20100523-20110730",
+ "species": "Spotted seal",
+ "scientific_name": "Phoca largha",
+ "based_on": {
+  "last_date": "2011-07-30"
+ },
+ "facts": {
+  "first_date": "May 24, 2010",
+  "last_date": "Jul 30, 2011",
+  "days_tracked": "432 days",
+  "path_km": "4,140 km",
+  "max_displacement_km": "2,380 km",
+  "farthest_date": "Jul 30, 2011",
+  "northernmost_lat": "70.3°N",
+  "southernmost_lat": "55.6°N",
+  "longest_gap_days": "268 days",
+  "sex": "male",
+  "stage": "adult",
+  "species_rank_distance": "the second longest distance from its starting point among the 90 spotted seal tracks on this map"
+ },
+ "species_context": []
+}

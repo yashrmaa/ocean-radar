@@ -1,0 +1,33 @@
+{
+ "animal_id": "imos:tu116-571-21",
+ "species": "Green turtle",
+ "scientific_name": "Chelonia mydas",
+ "based_on": {
+  "last_date": "2023-05-16"
+ },
+ "facts": {
+  "first_date": "Jan 20, 2022",
+  "last_date": "May 16, 2023",
+  "days_tracked": "482 days",
+  "path_km": "430 km",
+  "max_displacement_km": "187 km",
+  "farthest_date": "Jul 18, 2022",
+  "northernmost_lat": "9.5°S",
+  "southernmost_lat": "11.2°S",
+  "longest_gap_days": "38 days",
+  "release_site": "Milman Islet",
+  "sex": "female",
+  "stage": "adult",
+  "deepest_dive_m": "170 m",
+  "longest_dive_min": "360 minutes",
+  "species_rank_days": "the longest track among the 9 green turtle tracks on this map",
+  "species_rank_distance": "the second longest distance from its starting point among the 9 green turtle tracks on this map"
+ },
+ "species_context": [
+  {
+   "id": "green.diet",
+   "text": "Adult green turtles graze mainly on seagrass and algae.",
+   "source": "https://en.wikipedia.org/wiki/Green_sea_turtle"
+  }
+ ]
+}

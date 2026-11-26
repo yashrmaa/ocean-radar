@@ -1,0 +1,26 @@
+{
+ "animal_id": "atn_topp:1005066",
+ "species": "Pacific bluefin tuna",
+ "scientific_name": "Thunnus orientalis",
+ "based_on": {
+  "last_date": "2007-08-24"
+ },
+ "facts": {
+  "first_date": "Aug 11, 2005",
+  "last_date": "Aug 24, 2007",
+  "days_tracked": "743 days",
+  "path_km": "26,700 km",
+  "max_displacement_km": "9,970 km",
+  "farthest_date": "Jun 20, 2007",
+  "northernmost_lat": "35.5°N",
+  "southernmost_lat": "29.2°N",
+  "species_rank_distance": "the longest distance from its starting point among the 305 Pacific bluefin tuna tracks on this map"
+ },
+ "species_context": [
+  {
+   "id": "pbft.crossing",
+   "text": "Pacific bluefin tuna spawn in the western Pacific, and some young fish cross the ocean to feed off North America before returning west.",
+   "source": "https://en.wikipedia.org/wiki/Pacific_bluefin_tuna"
+  }
+ ]
+}

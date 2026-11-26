@@ -1,0 +1,28 @@
+{
+ "animal_id": "atn_topp:5615010",
+ "species": "Black marlin",
+ "scientific_name": "Istiompax indica",
+ "based_on": {
+  "last_date": "2016-07-01"
+ },
+ "facts": {
+  "first_date": "Nov 4, 2015",
+  "last_date": "Jul 1, 2016",
+  "days_tracked": "240 days",
+  "path_km": "15,470 km",
+  "max_displacement_km": "8,350 km",
+  "farthest_date": "Jun 1, 2016",
+  "northernmost_lat": "0.5°S",
+  "southernmost_lat": "16.9°S",
+  "longest_gap_days": "6 days",
+  "species_rank_days": "the longest track among the 54 black marlin tracks on this map",
+  "species_rank_distance": "the second longest distance from its starting point among the 54 black marlin tracks on this map"
+ },
+ "species_context": [
+  {
+   "id": "black.range",
+   "text": "Black marlin live in warm waters of the Indian and Pacific oceans and are among the largest bony fish.",
+   "source": "https://en.wikipedia.org/wiki/Black_marlin"
+  }
+ ]
+}

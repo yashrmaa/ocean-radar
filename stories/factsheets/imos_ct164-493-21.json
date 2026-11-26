@@ -1,0 +1,35 @@
+{
+ "animal_id": "imos:ct164-493-21",
+ "species": "Southern elephant seal",
+ "scientific_name": "Mirounga leonina",
+ "based_on": {
+  "last_date": "2022-11-21"
+ },
+ "facts": {
+  "first_date": "Jan 2, 2022",
+  "last_date": "Nov 21, 2022",
+  "days_tracked": "323 days",
+  "path_km": "12,750 km",
+  "max_displacement_km": "4,510 km",
+  "farthest_date": "Apr 9, 2022",
+  "northernmost_lat": "47.1°S",
+  "southernmost_lat": "69.1°S",
+  "release_site": "Iles Kerguelen",
+  "sex": "male",
+  "stage": "subadult",
+  "deepest_dive_m": "1,325 m",
+  "longest_dive_min": "101 minutes"
+ },
+ "species_context": [
+  {
+   "id": "ses.size",
+   "text": "Southern elephant seals are the largest seals, and adult males are several times heavier than females.",
+   "source": "https://en.wikipedia.org/wiki/Southern_elephant_seal"
+  },
+  {
+   "id": "ses.diving",
+   "text": "At sea, elephant seals dive almost continuously, spending only minutes at the surface between dives.",
+   "source": "https://en.wikipedia.org/wiki/Southern_elephant_seal"
+  }
+ ]
+}

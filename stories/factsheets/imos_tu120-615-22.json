@@ -1,0 +1,24 @@
+{
+ "animal_id": "imos:tu120-615-22",
+ "species": "Flatback turtle",
+ "scientific_name": "Natator depressus",
+ "based_on": {
+  "last_date": "2023-08-20"
+ },
+ "facts": {
+  "first_date": "Oct 9, 2022",
+  "last_date": "Aug 20, 2023",
+  "days_tracked": "315 days",
+  "path_km": "2,820 km",
+  "max_displacement_km": "717 km",
+  "farthest_date": "Feb 24, 2023",
+  "northernmost_lat": "10.1°S",
+  "southernmost_lat": "12.2°S",
+  "release_site": "North West Crocodile Island",
+  "sex": "female",
+  "stage": "adult",
+  "deepest_dive_m": "1,750 m",
+  "longest_dive_min": "150 minutes"
+ },
+ "species_context": []
+}

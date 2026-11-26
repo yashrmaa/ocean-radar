@@ -1,0 +1,43 @@
+{
+ "animal_id": "atn_topp:5105049",
+ "written_by": "Claude (Opus 5.5) in Claude Code, from the fact sheet",
+ "based_on": {
+  "last_date": "2007-10-06"
+ },
+ "sentences": [
+  {
+   "text": "This Atlantic bluefin tuna carried its tag for {days_tracked}, from {first_date} to {last_date}: {species_rank_days}.",
+   "facts": [
+    "days_tracked",
+    "first_date",
+    "last_date",
+    "species_rank_days"
+   ]
+  },
+  {
+   "text": "Atlantic bluefin tuna are warm-bodied fish that can cross the Atlantic, spawning mainly in the Gulf of Mexico and the Mediterranean.",
+   "context": [
+    "abft.warm"
+   ]
+  },
+  {
+   "text": "Its positions range from {southernmost_lat} to {northernmost_lat}, and on {farthest_date} it was {max_displacement_km} from where its track began.",
+   "facts": [
+    "southernmost_lat",
+    "northernmost_lat",
+    "farthest_date",
+    "max_displacement_km"
+   ]
+  },
+  {
+   "text": "That is {species_rank_distance}.",
+   "facts": [
+    "species_rank_distance"
+   ]
+  },
+  {
+   "text": "What happened after its tag stopped reporting isn't known.",
+   "framing": true
+  }
+ ]
+}

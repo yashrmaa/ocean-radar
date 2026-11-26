@@ -1,0 +1,44 @@
+{
+ "animal_id": "atn_topp:2205012",
+ "written_by": "Claude (Opus 5.5) in Claude Code, from the fact sheet",
+ "based_on": {
+  "last_date": "2006-04-11"
+ },
+ "sentences": [
+  {
+   "text": "This blue whale was tracked for {days_tracked}, starting on {first_date}: {species_rank_days}.",
+   "facts": [
+    "days_tracked",
+    "first_date",
+    "species_rank_days"
+   ]
+  },
+  {
+   "text": "Blue whales are the largest animals known to have lived.",
+   "context": [
+    "blue.size"
+   ]
+  },
+  {
+   "text": "Blue whales in the eastern North Pacific feed off California in summer and autumn and move south for the winter.",
+   "context": [
+    "blue.seasons"
+   ]
+  },
+  {
+   "text": "By {farthest_date} this one was {max_displacement_km} from where its track began, {species_rank_distance}.",
+   "facts": [
+    "farthest_date",
+    "max_displacement_km",
+    "species_rank_distance"
+   ]
+  },
+  {
+   "text": "Its southernmost position was {southernmost_lat}, and the track ends on {last_date}.",
+   "facts": [
+    "southernmost_lat",
+    "last_date"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,45 @@
+{
+ "animal_id": "atn_deployments:atn_83904_bearded-seal_trajectory_20090625-20120612",
+ "written_by": "Claude (Opus 5.5) in Claude Code, from the fact sheet",
+ "based_on": {
+  "last_date": "2012-04-24"
+ },
+ "sentences": [
+  {
+   "text": "This {stage} {sex} bearded seal was tracked for {days_tracked}, from {first_date} to {last_date}: {species_rank_days}.",
+   "facts": [
+    "stage",
+    "sex",
+    "days_tracked",
+    "first_date",
+    "last_date",
+    "species_rank_days"
+   ]
+  },
+  {
+   "text": "Bearded seals live in Arctic and sub-Arctic waters with sea ice and feed mostly on the sea floor.",
+   "context": [
+    "bearded.ice"
+   ]
+  },
+  {
+   "text": "His positions stay between {southernmost_lat} and {northernmost_lat}, and his farthest point from the start, {max_displacement_km} away, came on {farthest_date}.",
+   "facts": [
+    "southernmost_lat",
+    "northernmost_lat",
+    "max_displacement_km",
+    "farthest_date"
+   ]
+  },
+  {
+   "text": "His record has one long silence of {longest_gap_days}, shown on the map as a dashed line.",
+   "facts": [
+    "longest_gap_days"
+   ]
+  },
+  {
+   "text": "Where he was during that time isn't known.",
+   "framing": true
+  }
+ ]
+}

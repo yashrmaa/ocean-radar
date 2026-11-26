@@ -1,0 +1,44 @@
+{
+ "animal_id": "atn_topp:5615010",
+ "written_by": "Claude (Opus 5.5) in Claude Code, from the fact sheet",
+ "based_on": {
+  "last_date": "2016-07-01"
+ },
+ "sentences": [
+  {
+   "text": "This black marlin's track begins on {first_date} and runs for {days_tracked}, {species_rank_days}.",
+   "facts": [
+    "first_date",
+    "days_tracked",
+    "species_rank_days"
+   ]
+  },
+  {
+   "text": "Black marlin live in warm waters of the Indian and Pacific oceans and are among the largest bony fish.",
+   "context": [
+    "black.range"
+   ]
+  },
+  {
+   "text": "By {farthest_date} it was {max_displacement_km} from where its track began, {species_rank_distance}.",
+   "facts": [
+    "farthest_date",
+    "max_displacement_km",
+    "species_rank_distance"
+   ]
+  },
+  {
+   "text": "Its whole track lies south of the equator, between {northernmost_lat} and {southernmost_lat}.",
+   "facts": [
+    "northernmost_lat",
+    "southernmost_lat"
+   ]
+  },
+  {
+   "text": "The last position is from {last_date}.",
+   "facts": [
+    "last_date"
+   ]
+  }
+ ]
+}

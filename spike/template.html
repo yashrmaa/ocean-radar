@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ocean Radar Spike</title>
+<link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet">
+<script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+<script src="https://unpkg.com/deck.gl@8.9.35/dist.min.js"></script>
+<style>
+  :root { --bg:#0b1020; --panel:rgba(12,18,36,.92); --ink:#e6ecff; --muted:#8b97b8; --line:#26304d; }
+  html,body { margin:0; height:100%; background:var(--bg); color:var(--ink); font:14px/1.4 system-ui,-apple-system,sans-serif; }
+  #map { position:absolute; inset:0; }
+  .bar { position:absolute; left:16px; right:16px; bottom:16px; background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:10px 14px; display:flex; gap:14px; align-items:center; }
+  .bar button { background:#1d2a4d; color:var(--ink); border:1px solid var(--line); border-radius:6px; padding:6px 12px; cursor:pointer; font:inherit; }
+  .bar input[type=range] { flex:1; }
+  #date { font-variant-numeric:tabular-nums; min-width:92px; font-weight:600; }
+  #count { color:var(--muted); min-width:130px; text-align:right; }
+  .legend { position:absolute; top:16px; left:16px; background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:10px 14px; }
+  .legend h1 { font-size:15px; margin:0 0 6px; }
+  .legend label { display:flex; gap:8px; align-items:center; cursor:pointer; color:var(--muted); }
+  .legend i { width:10px; height:10px; border-radius:50%; display:inline-block; }
+  .legend small { display:block; color:var(--muted); margin-top:6px; max-width:240px; }
+  #panel { position:absolute; top:16px; right:16px; width:280px; background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px; display:none; }
+  #panel h2 { margin:0 0 2px; font-size:17px; }
+  #panel .sub { color:var(--muted); margin-bottom:10px; }
+  #panel dl { display:grid; grid-template-columns:auto 1fr; gap:4px 12px; margin:0; }
+  #panel dt { color:var(--muted); } #panel dd { margin:0; font-variant-numeric:tabular-nums; }
+  #panel .x { position:absolute; top:8px; right:10px; cursor:pointer; color:var(--muted); }
+  #panel .note { color:var(--muted); font-size:12px; margin-top:10px; }
+  #panel figure { margin:-14px -14px 12px; }
+  #panel figure img { display:block; width:100%; aspect-ratio:3/2; object-fit:cover; border-radius:10px 10px 0 0; background:#1a2340; }
+  #panel figcaption { color:var(--muted); font-size:11px; padding:6px 14px 0; }
+  #panel figcaption a, #panel .note a { color:inherit; }
+  #panel { max-height:calc(100vh - 120px); overflow:auto; }
+  .legend, #panel, .bar { z-index:2; }
+  #panel .x { z-index:3; background:rgba(0,0,0,.55); color:#fff; border-radius:50%; width:24px; height:24px; display:grid; place-items:center; }
+  .bar { bottom:34px; }
+  @media (max-width:600px){ #panel{ left:16px; width:auto; top:auto; bottom:84px; } .legend small{display:none;} }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<div class="legend">
+  <h1>Ocean Radar · spike</h1>
+  <div id="taxa"></div>
+  <small id="blurb"></small>
+</div>
+<div id="panel"><span class="x" onclick="select(null)">✕</span><div id="pbody"></div></div>
+<div class="bar">
+  <button id="play">Pause</button>
+  <span id="date"></span>
+  <input id="time" type="range" min="0" step="1">
+  <select id="speed"><option value="2">slow</option><option value="6" selected>normal</option><option value="20">fast</option></select>
+  <span id="count"></span>
+</div>
+<script>
+const BUNDLE = __DATA__;
+const DATA = BUNDLE.tracks, SOURCES = BUNDLE.sources;
+DATA.forEach(d => d.tx = d.grp);
+const EPOCH = Date.parse(BUNDLE.epoch + 'T00:00:00Z');
+const COLORS = { fish:[255,170,60], shark:[255,80,90], whale:[90,200,255], seal:[70,130,255], turtle:[120,230,140], bird:[220,160,255] };
+const LABELS = { fish:'Fish', shark:'Sharks', whale:'Whales', seal:'Seals & sea lions', turtle:'Turtles', bird:'Seabirds' };
+const tEnd = Math.max(...DATA.map(d => d.t[d.t.length-1]));
+let now = 0, playing = true, selected = null;
+const visible = new Set(Object.keys(COLORS));
+
+const taxaEl = document.getElementById('taxa');
+const byTx = {}; DATA.forEach(d => byTx[d.tx] = (byTx[d.tx]||0)+1);
+Object.entries(COLORS).forEach(([k,c]) => {
+  const l = document.createElement('label');
+  l.innerHTML = `<input type="checkbox" checked><i style="background:rgb(${c})"></i>${LABELS[k]} (${byTx[k]||0})`;
+  l.querySelector('input').onchange = e => { e.target.checked ? visible.add(k) : visible.delete(k); render(); };
+  taxaEl.appendChild(l);
+});
+
+document.getElementById('blurb').textContent =
+  `${DATA.length.toLocaleString()} tagged animals, ${BUNDLE.epoch.slice(0,4)}–${fmt(tEnd).slice(0,4)}. NOAA ATN (Pacific, to 2017) + IMOS (Southern Ocean & northern Australia, 2018–). Daily modeled positions, not live.`;
+const slider = document.getElementById('time'); slider.max = Math.ceil(tEnd);
+slider.oninput = () => { now = +slider.value; render(); };
+document.getElementById('play').onclick = e => { playing = !playing; e.target.textContent = playing ? 'Pause' : 'Play'; };
+
+function headPos(d, t) {
+  const ts = d.t; if (t < ts[0] || t > ts[ts.length-1]) return null;
+  let lo = 0, hi = ts.length-1;
+  while (hi - lo > 1) { const m = (lo+hi)>>1; ts[m] <= t ? lo = m : hi = m; }
+  const f = ts[hi] === ts[lo] ? 0 : (t - ts[lo]) / (ts[hi] - ts[lo]);
+  const a = d.p[lo], b = d.p[hi];
+  return [a[0] + (b[0]-a[0])*f, a[1] + (b[1]-a[1])*f];
+}
+
+const map = new maplibregl.Map({
+  container: 'map',
+  style: 'https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json',
+  center: [-150, 25], zoom: 1.6, attributionControl: true
+});
+const overlay = new deck.MapboxOverlay({ interleaved: false, layers: [] });
+map.addControl(overlay);
+
+function fmt(days) { return new Date(EPOCH + days*864e5).toISOString().slice(0,10); }
+
+function select(d) {
+  selected = d; const p = document.getElementById('panel');
+  if (!d) { p.style.display = 'none'; render(); return; }
+  const days = Math.round(d.t[d.t.length-1] - d.t[0]);
+  const src = SOURCES[d.src];
+  const who = [d.sex, d.stage].filter(Boolean).join(' ');
+  const row = (k, v) => v ? `<dt>${k}</dt><dd>${v}</dd>` : '';
+  const ph = BUNDLE.photos[d.sp];
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const photo = ph ? `<figure><a href="${ph.wiki}" target="_blank" rel="noopener"><img src="${ph.src}" alt="A ${esc(d.sp.toLowerCase())}" loading="lazy"></a>
+    <figcaption>A ${esc(d.sp.toLowerCase())}, not this individual. Photo: <a href="${ph.file}" target="_blank" rel="noopener">${esc(ph.credit)}</a>, ${ph.license_url ? `<a href="${ph.license_url}" target="_blank" rel="noopener">${esc(ph.license)}</a>` : esc(ph.license)}</figcaption></figure>` : '';
+  document.getElementById('pbody').innerHTML = photo + `
+    <h2>${d.sp}</h2><div class="sub">${who ? who[0].toUpperCase() + who.slice(1) + ' · ' : ''}tag ${d.id.split(':')[1]}</div>
+    <dl>${row('Tagged at', d.site)}
+    <dt>Tracked</dt><dd>${d.s} → ${d.e}</dd>
+    <dt>Duration</dt><dd>${days} days</dd>
+    <dt>Path length</dt><dd>${d.km.toLocaleString()} km${d.noisy ? ' ⚠︎' : ''}</dd></dl>
+    <div class="note">${d.noisy ? 'This track implies implausible speeds, likely position error from a light-based tag. Distance is overstated. ' : ''}One modeled position per day. ${who ? '' : 'Sex and life stage not recorded. '}Birth date unknown.<br>Source: <a href="${src.url}" target="_blank" rel="noopener" style="color:inherit">${src.name}</a> · ${src.license}</div>`;
+  p.style.display = 'block'; render();
+}
+
+function render() {
+  const live = DATA.filter(d => visible.has(d.tx));
+  const heads = [];
+  for (const d of live) { const h = headPos(d, now); if (h) heads.push({ d, h }); }
+  document.getElementById('date').textContent = fmt(now);
+  document.getElementById('count').textContent = `${heads.length} animals at sea`;
+  slider.value = now;
+  const layers = [
+    new deck.TripsLayer({
+      id: 'trips', data: live, getPath: d => d.p, getTimestamps: d => d.t,
+      getColor: d => COLORS[d.tx], opacity: selected ? 0.25 : 0.8, widthMinPixels: 1.5,
+      jointRounded: true, capRounded: true, fadeTrail: true, trailLength: 90, currentTime: now,
+      updateTriggers: { getColor: [selected] }
+    }),
+    new deck.ScatterplotLayer({
+      id: 'heads', data: heads, getPosition: x => x.h, getFillColor: x => COLORS[x.d.tx],
+      radiusMinPixels: 3, radiusMaxPixels: 6, pickable: true, stroked: true, getLineColor: [255,255,255,180], lineWidthMinPixels: 0.5,
+      onClick: info => select(info.object.d)
+    })
+  ];
+  if (selected) layers.push(new deck.PathLayer({
+    id: 'sel', data: [selected], getPath: d => d.p, getColor: [255,255,255,230], widthMinPixels: 2.5
+  }));
+  overlay.setProps({ layers, getCursor: ({isHovering}) => isHovering ? 'pointer' : 'grab' });
+}
+
+let last = performance.now();
+function tick(ts) {
+  const dt = (ts - last) / 1000; last = ts;
+  if (playing) { now += dt * +document.getElementById('speed').value * 10; if (now > tEnd) now = 0; render(); }
+  requestAnimationFrame(tick);
+}
+map.on('load', () => { render(); requestAnimationFrame(tick); });
+</script>
+</body>
+</html>

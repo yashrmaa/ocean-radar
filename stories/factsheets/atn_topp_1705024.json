@@ -1,0 +1,27 @@
+{
+ "animal_id": "atn_topp:1705024",
+ "species": "Salmon shark",
+ "scientific_name": "Lamna ditropis",
+ "based_on": {
+  "last_date": "2007-10-14"
+ },
+ "facts": {
+  "first_date": "Aug 26, 2005",
+  "last_date": "Oct 14, 2007",
+  "days_tracked": "779 days",
+  "path_km": "28,730 km",
+  "max_displacement_km": "3,730 km",
+  "farthest_date": "Mar 29, 2006",
+  "northernmost_lat": "60.2°N",
+  "southernmost_lat": "28.3°N",
+  "longest_gap_days": "121 days",
+  "species_rank_days": "the longest track among the 42 salmon shark tracks on this map"
+ },
+ "species_context": [
+  {
+   "id": "salmon.warm",
+   "text": "Salmon sharks keep their bodies warmer than the surrounding water, which lets them hunt in cold northern seas.",
+   "source": "https://en.wikipedia.org/wiki/Salmon_shark"
+  }
+ ]
+}
