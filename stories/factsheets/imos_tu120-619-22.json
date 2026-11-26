@@ -22,5 +22,11 @@
   "species_rank_days": "the longest track among the 15 flatback turtle tracks on this map",
   "species_rank_distance": "the second longest distance from its starting point among the 15 flatback turtle tracks on this map"
  },
- "species_context": []
+ "species_context": [
+  {
+   "id": "flatback.local",
+   "text": "Flatback turtles nest only in Australia and, unlike most sea turtles, stay on the continental shelf rather than crossing oceans.",
+   "source": "https://en.wikipedia.org/wiki/Flatback_turtle"
+  }
+ ]
 }

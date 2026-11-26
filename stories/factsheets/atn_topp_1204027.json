@@ -16,5 +16,11 @@
   "southernmost_lat": "19.6°N",
   "species_rank_distance": "the third longest distance from its starting point among the 22 albacore tuna tracks on this map"
  },
- "species_context": []
+ "species_context": [
+  {
+   "id": "alb.migrate",
+   "text": "Albacore are long-distance migrants, and North Pacific albacore move between waters off North America and the western Pacific.",
+   "source": "https://en.wikipedia.org/wiki/Albacore"
+  }
+ ]
 }

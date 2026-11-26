@@ -1,0 +1,37 @@
+{
+ "animal_id": "atn_topp:1903007",
+ "written_by": "Claude (Opus 5.5) in Claude Code, from the fact sheet",
+ "based_on": {
+  "last_date": "2004-06-23"
+ },
+ "sentences": [
+  {
+   "text": "This white shark's track begins on {first_date} and runs for {days_tracked}.",
+   "facts": [
+    "first_date",
+    "days_tracked"
+   ]
+  },
+  {
+   "text": "White sharks from the California coast travel offshore to a mid-Pacific area between California and Hawaii that researchers call the White Shark Café.",
+   "context": [
+    "white.cafe"
+   ]
+  },
+  {
+   "text": "On {farthest_date} it was {max_displacement_km} from where its track began, {species_rank_distance}.",
+   "facts": [
+    "farthest_date",
+    "max_displacement_km",
+    "species_rank_distance"
+   ]
+  },
+  {
+   "text": "Its southernmost position was {southernmost_lat}, and the last is from {last_date}.",
+   "facts": [
+    "southernmost_lat",
+    "last_date"
+   ]
+  }
+ ]
+}

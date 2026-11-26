@@ -1,0 +1,40 @@
+{
+ "animal_id": "imos:tu120-615-22",
+ "written_by": "Claude (Opus 5.5) in Claude Code, from the fact sheet",
+ "based_on": {
+  "last_date": "2023-08-20"
+ },
+ "sentences": [
+  {
+   "text": "This {stage} {sex} flatback turtle was tagged at {release_site} and tracked from {first_date} to {last_date}.",
+   "facts": [
+    "stage",
+    "sex",
+    "release_site",
+    "first_date",
+    "last_date"
+   ]
+  },
+  {
+   "text": "Flatback turtles nest only in Australia and, unlike most sea turtles, stay on the continental shelf rather than crossing oceans.",
+   "context": [
+    "flatback.local"
+   ]
+  },
+  {
+   "text": "On {farthest_date} she was {max_displacement_km} from where tracking began, and over {days_tracked} her daily positions add up to {path_km}.",
+   "facts": [
+    "farthest_date",
+    "max_displacement_km",
+    "days_tracked",
+    "path_km"
+   ]
+  },
+  {
+   "text": "Her longest recorded dive lasted {longest_dive_min}.",
+   "facts": [
+    "longest_dive_min"
+   ]
+  }
+ ]
+}

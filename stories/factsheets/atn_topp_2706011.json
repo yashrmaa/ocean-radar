@@ -17,5 +17,11 @@
   "species_rank_days": "the longest track among the 13 loggerhead sea turtle tracks on this map",
   "species_rank_distance": "the longest distance from its starting point among the 13 loggerhead sea turtle tracks on this map"
  },
- "species_context": []
+ "species_context": [
+  {
+   "id": "logger.ocean",
+   "text": "Young loggerheads spend years in the open ocean before settling closer to shore.",
+   "source": "https://en.wikipedia.org/wiki/Loggerhead_sea_turtle"
+  }
+ ]
 }

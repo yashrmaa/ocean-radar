@@ -1,0 +1,39 @@
+{
+ "animal_id": "atn_topp:1705003",
+ "written_by": "Claude (Opus 5.5) in Claude Code, from the fact sheet",
+ "based_on": {
+  "last_date": "2006-12-17"
+ },
+ "sentences": [
+  {
+   "text": "This salmon shark was tracked for {days_tracked}, from {first_date} to {last_date}: {species_rank_days}.",
+   "facts": [
+    "days_tracked",
+    "first_date",
+    "last_date",
+    "species_rank_days"
+   ]
+  },
+  {
+   "text": "Salmon sharks keep their bodies warmer than the surrounding water, which lets them hunt in cold northern seas.",
+   "context": [
+    "salmon.warm"
+   ]
+  },
+  {
+   "text": "Its track spans from {northernmost_lat} down to {southernmost_lat}, and on {farthest_date} it was {max_displacement_km} from where it began.",
+   "facts": [
+    "northernmost_lat",
+    "southernmost_lat",
+    "farthest_date",
+    "max_displacement_km"
+   ]
+  },
+  {
+   "text": "Its daily positions add up to {path_km}.",
+   "facts": [
+    "path_km"
+   ]
+  }
+ ]
+}

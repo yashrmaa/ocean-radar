@@ -17,5 +17,11 @@
   "species_rank_days": "the third longest track among the 13 striped marlin tracks on this map",
   "species_rank_distance": "the third longest distance from its starting point among the 13 striped marlin tracks on this map"
  },
- "species_context": []
+ "species_context": [
+  {
+   "id": "striped.range",
+   "text": "Striped marlin live in the warm and temperate waters of the Indian and Pacific oceans.",
+   "source": "https://en.wikipedia.org/wiki/Striped_marlin"
+  }
+ ]
 }

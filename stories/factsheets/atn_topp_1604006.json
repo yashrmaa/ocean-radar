@@ -16,5 +16,11 @@
   "southernmost_lat": "4.1°N",
   "species_rank_days": "the longest track among the 52 blue shark tracks on this map"
  },
- "species_context": []
+ "species_context": [
+  {
+   "id": "blueshark.wide",
+   "text": "Blue sharks are found in oceans worldwide and are known for long migrations.",
+   "source": "https://en.wikipedia.org/wiki/Blue_shark"
+  }
+ ]
 }

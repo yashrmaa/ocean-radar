@@ -1,0 +1,47 @@
+{
+ "animal_id": "imos:ct164-F468-21",
+ "written_by": "Claude (Opus 5.5) in Claude Code, from the fact sheet",
+ "based_on": {
+  "last_date": "2022-11-18"
+ },
+ "sentences": [
+  {
+   "text": "This young {sex} southern elephant seal, a {stage}, was tagged at {release_site} and tracked from {first_date} to {last_date}.",
+   "facts": [
+    "sex",
+    "stage",
+    "release_site",
+    "first_date",
+    "last_date"
+   ]
+  },
+  {
+   "text": "Southern elephant seals are the largest seals, and adult males are several times heavier than females.",
+   "context": [
+    "ses.size"
+   ]
+  },
+  {
+   "text": "His track reached as far south as {southernmost_lat}, and on {farthest_date} he was {max_displacement_km} from where tracking began.",
+   "facts": [
+    "southernmost_lat",
+    "farthest_date",
+    "max_displacement_km"
+   ]
+  },
+  {
+   "text": "At sea, elephant seals dive almost continuously, spending only minutes at the surface between dives.",
+   "context": [
+    "ses.diving"
+   ]
+  },
+  {
+   "text": "His deepest recorded dive went to {deepest_dive_m}, and over {days_tracked} his daily positions add up to {path_km}.",
+   "facts": [
+    "deepest_dive_m",
+    "days_tracked",
+    "path_km"
+   ]
+  }
+ ]
+}

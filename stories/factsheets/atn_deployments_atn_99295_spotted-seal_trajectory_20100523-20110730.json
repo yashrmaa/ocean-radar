@@ -19,5 +19,11 @@
   "stage": "adult",
   "species_rank_distance": "the second longest distance from its starting point among the 90 spotted seal tracks on this map"
  },
- "species_context": []
+ "species_context": [
+  {
+   "id": "spotted.ice",
+   "text": "Spotted seals live in the North Pacific and Arctic seas and use the edge of the sea ice in spring to give birth.",
+   "source": "https://en.wikipedia.org/wiki/Spotted_seal"
+  }
+ ]
 }

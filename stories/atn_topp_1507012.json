@@ -1,0 +1,37 @@
+{
+ "animal_id": "atn_topp:1507012",
+ "written_by": "Claude (Opus 5.5) in Claude Code, from the fact sheet",
+ "based_on": {
+  "last_date": "2008-08-13"
+ },
+ "sentences": [
+  {
+   "text": "This shortfin mako carried its tag for {days_tracked}, from {first_date} to {last_date}.",
+   "facts": [
+    "days_tracked",
+    "first_date",
+    "last_date"
+   ]
+  },
+  {
+   "text": "Shortfin makos are among the fastest-swimming sharks.",
+   "context": [
+    "mako.fast"
+   ]
+  },
+  {
+   "text": "On {farthest_date} it was {max_displacement_km} from where its track began, {species_rank_distance}.",
+   "facts": [
+    "farthest_date",
+    "max_displacement_km",
+    "species_rank_distance"
+   ]
+  },
+  {
+   "text": "Its daily positions add up to {path_km}.",
+   "facts": [
+    "path_km"
+   ]
+  }
+ ]
+}

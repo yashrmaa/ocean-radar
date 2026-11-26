@@ -1,0 +1,45 @@
+{
+ "animal_id": "imos:ct170-736-22",
+ "written_by": "Claude (Opus 5.5) in Claude Code, from the fact sheet",
+ "based_on": {
+  "last_date": "2023-12-14"
+ },
+ "sentences": [
+  {
+   "text": "This young {sex} southern elephant seal, a {stage}, was tagged at {release_site} and tracked for {days_tracked}.",
+   "facts": [
+    "sex",
+    "stage",
+    "release_site",
+    "days_tracked"
+   ]
+  },
+  {
+   "text": "At sea, elephant seals dive almost continuously, spending only minutes at the surface between dives.",
+   "context": [
+    "ses.diving"
+   ]
+  },
+  {
+   "text": "His deepest recorded dive went to {deepest_dive_m}, and his longest lasted {longest_dive_min}.",
+   "facts": [
+    "deepest_dive_m",
+    "longest_dive_min"
+   ]
+  },
+  {
+   "text": "On {farthest_date} he was {max_displacement_km} from where tracking began, and his track reached {southernmost_lat}.",
+   "facts": [
+    "farthest_date",
+    "max_displacement_km",
+    "southernmost_lat"
+   ]
+  },
+  {
+   "text": "His last position is from {last_date}.",
+   "facts": [
+    "last_date"
+   ]
+  }
+ ]
+}

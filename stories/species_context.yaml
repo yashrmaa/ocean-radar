@@ -76,3 +76,43 @@ Thunnus thynnus:
   - id: abft.warm
     text: Atlantic bluefin tuna are warm-bodied fish that can cross the Atlantic, spawning mainly in the Gulf of Mexico and the Mediterranean.
     source: https://en.wikipedia.org/wiki/Atlantic_bluefin_tuna
+
+Phoca largha:
+  - id: spotted.ice
+    text: Spotted seals live in the North Pacific and Arctic seas and use the edge of the sea ice in spring to give birth.
+    source: https://en.wikipedia.org/wiki/Spotted_seal
+
+Thunnus albacares:
+  - id: yft.warm
+    text: Yellowfin tuna live in warm tropical and subtropical seas around the world.
+    source: https://en.wikipedia.org/wiki/Yellowfin_tuna
+
+Thunnus alalunga:
+  - id: alb.migrate
+    text: Albacore are long-distance migrants, and North Pacific albacore move between waters off North America and the western Pacific.
+    source: https://en.wikipedia.org/wiki/Albacore
+
+Isurus oxyrinchus:
+  - id: mako.fast
+    text: Shortfin makos are among the fastest-swimming sharks.
+    source: https://en.wikipedia.org/wiki/Shortfin_mako_shark
+
+Prionace glauca:
+  - id: blueshark.wide
+    text: Blue sharks are found in oceans worldwide and are known for long migrations.
+    source: https://en.wikipedia.org/wiki/Blue_shark
+
+Caretta caretta:
+  - id: logger.ocean
+    text: Young loggerheads spend years in the open ocean before settling closer to shore.
+    source: https://en.wikipedia.org/wiki/Loggerhead_sea_turtle
+
+Kajikia audax:
+  - id: striped.range
+    text: Striped marlin live in the warm and temperate waters of the Indian and Pacific oceans.
+    source: https://en.wikipedia.org/wiki/Striped_marlin
+
+Natator depressus:
+  - id: flatback.local
+    text: Flatback turtles nest only in Australia and, unlike most sea turtles, stay on the continental shelf rather than crossing oceans.
+    source: https://en.wikipedia.org/wiki/Flatback_turtle

@@ -1,0 +1,42 @@
+{
+ "animal_id": "atn_deployments:atn_99295_spotted-seal_trajectory_20100523-20110730",
+ "written_by": "Claude (Opus 5.5) in Claude Code, from the fact sheet",
+ "based_on": {
+  "last_date": "2011-07-30"
+ },
+ "sentences": [
+  {
+   "text": "This {stage} {sex} spotted seal was tracked for {days_tracked}, from {first_date} to {last_date}.",
+   "facts": [
+    "stage",
+    "sex",
+    "days_tracked",
+    "first_date",
+    "last_date"
+   ]
+  },
+  {
+   "text": "Spotted seals live in the North Pacific and Arctic seas and use the edge of the sea ice in spring to give birth.",
+   "context": [
+    "spotted.ice"
+   ]
+  },
+  {
+   "text": "His last position was also his farthest, {max_displacement_km} from where tracking began: {species_rank_distance}.",
+   "facts": [
+    "max_displacement_km",
+    "species_rank_distance"
+   ]
+  },
+  {
+   "text": "In between, his tag went quiet for {longest_gap_days}.",
+   "facts": [
+    "longest_gap_days"
+   ]
+  },
+  {
+   "text": "Why the tag went quiet isn't recorded. The map shows the gap as a dashed line, not a guessed route.",
+   "framing": true
+  }
+ ]
+}

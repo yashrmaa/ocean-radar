@@ -18,5 +18,11 @@
   "sex": "female",
   "stage": "adult"
  },
- "species_context": []
+ "species_context": [
+  {
+   "id": "spotted.ice",
+   "text": "Spotted seals live in the North Pacific and Arctic seas and use the edge of the sea ice in spring to give birth.",
+   "source": "https://en.wikipedia.org/wiki/Spotted_seal"
+  }
+ ]
 }

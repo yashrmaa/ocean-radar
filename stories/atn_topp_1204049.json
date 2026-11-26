@@ -1,0 +1,36 @@
+{
+ "animal_id": "atn_topp:1204049",
+ "written_by": "Claude (Opus 5.5) in Claude Code, from the fact sheet",
+ "based_on": {
+  "last_date": "2005-09-01"
+ },
+ "sentences": [
+  {
+   "text": "This albacore was tracked for {days_tracked}, from {first_date} to {last_date}: {species_rank_days}.",
+   "facts": [
+    "days_tracked",
+    "first_date",
+    "last_date",
+    "species_rank_days"
+   ]
+  },
+  {
+   "text": "Albacore are long-distance migrants, and North Pacific albacore move between waters off North America and the western Pacific.",
+   "context": [
+    "alb.migrate"
+   ]
+  },
+  {
+   "text": "By {farthest_date} it was {max_displacement_km} from where its track began: {species_rank_distance}.",
+   "facts": [
+    "farthest_date",
+    "max_displacement_km",
+    "species_rank_distance"
+   ]
+  },
+  {
+   "text": "Where it went next isn't known.",
+   "framing": true
+  }
+ ]
+}

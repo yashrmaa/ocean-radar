@@ -1,0 +1,36 @@
+{
+ "animal_id": "atn_topp:2007036",
+ "written_by": "Claude (Opus 5.5) in Claude Code, from the fact sheet",
+ "based_on": {
+  "last_date": "2008-02-27"
+ },
+ "sentences": [
+  {
+   "text": "This northern elephant seal was tracked for {days_tracked}, from {first_date} to {last_date}: {species_rank_days}.",
+   "facts": [
+    "days_tracked",
+    "first_date",
+    "last_date",
+    "species_rank_days"
+   ]
+  },
+  {
+   "text": "Northern elephant seals make two long feeding trips a year, coming ashore in between to breed and to moult.",
+   "context": [
+    "nes.trips"
+   ]
+  },
+  {
+   "text": "On {farthest_date} it was {max_displacement_km} from where its track began, and its daily positions add up to {path_km}.",
+   "facts": [
+    "farthest_date",
+    "max_displacement_km",
+    "path_km"
+   ]
+  },
+  {
+   "text": "What it did after the tag stopped isn't recorded.",
+   "framing": true
+  }
+ ]
+}

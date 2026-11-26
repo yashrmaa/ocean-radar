@@ -17,5 +17,11 @@
   "species_rank_days": "the second longest track among the 225 yellowfin tuna tracks on this map",
   "species_rank_distance": "the longest distance from its starting point among the 225 yellowfin tuna tracks on this map"
  },
- "species_context": []
+ "species_context": [
+  {
+   "id": "yft.warm",
+   "text": "Yellowfin tuna live in warm tropical and subtropical seas around the world.",
+   "source": "https://en.wikipedia.org/wiki/Yellowfin_tuna"
+  }
+ ]
 }
