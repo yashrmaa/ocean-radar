@@ -427,10 +427,44 @@ async function main() {
   // Dev-only handle for debugging in the console (stripped from production builds).
   if (import.meta.env.DEV) Object.assign(window, { __radar: { map, state, index, heads: () => heads(state.now) } });
 
+  // ---------- resume where the viewer left off ----------
+  // The date, map view and mode are kept in this browser (localStorage), so a reload, or a phone
+  // reloading the tab in the background, picks up where you were. A link with #t= or #a= wins.
+  const RESUME_KEY = 'wildliferadar:resume';
+  interface Resume { day: number; lng: number; lat: number; zoom: number; mode: 'replay' | 'last'; playing?: boolean }
+  function readResume(): Resume | null {
+    try {
+      const r = JSON.parse(localStorage.getItem(RESUME_KEY) || 'null');
+      return r && Number.isFinite(r.day) && Number.isFinite(r.zoom) ? r : null;
+    } catch { return null; }
+  }
+  function saveResume() {
+    try {
+      const c = map.getCenter();
+      const r: Resume = { day: state.now, lng: c.lng, lat: c.lat, zoom: map.getZoom(), mode: state.mode, playing: state.playing };
+      localStorage.setItem(RESUME_KEY, JSON.stringify(r));
+    } catch { /* storage blocked (private mode): nothing to resume, which is fine */ }
+  }
+  setInterval(saveResume, 2000);
+  document.addEventListener('visibilitychange', () => { if (document.hidden) saveResume(); });
+  window.addEventListener('pagehide', saveResume);
+
+  function setMode(mode: 'replay' | 'last') {
+    state.mode = mode;
+    document.querySelectorAll<HTMLInputElement>('input[name=mode]').forEach((r) => { r.checked = r.value === mode; });
+    document.querySelector('.timebar')!.classList.toggle('last-mode', mode === 'last');
+  }
+
   async function applyHash(initial: boolean) {
     const p = new URLSearchParams(location.hash.slice(1));
     const t = p.get('t');
-    if (t || initial) await setTime(t ? clock.toDay(t) : tDefault);
+    const resume = initial && !t && !p.get('a') ? readResume() : null;
+    if (resume) {
+      map.jumpTo({ center: [resume.lng, resume.lat], zoom: resume.zoom });
+      if (resume.mode === 'last') setMode('last');
+      if (resume.playing === false) setPlaying(false);
+    }
+    if (t || initial) await setTime(t ? clock.toDay(t) : resume ? resume.day : tDefault);
     const a = p.get('a');
     const i = a ? index.animals.findIndex((r) => r.id === a) : -1;
     if (i >= 0) { setPlaying(false); await select(i, { fly: true }); }
