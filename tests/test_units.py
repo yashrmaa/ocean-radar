@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from pipeline.emit import _unwrap
-from pipeline.species import _group
+from pipeline.species import group_of as _group
 from pipeline.stories import summary
 from pipeline.util import haversine_km
 
@@ -10,8 +10,12 @@ def test_groups_from_taxonomy():
     assert _group({"class": "Elasmobranchii"}) == "shark"
     assert _group({"class": "Mammalia", "family": "Phocidae"}) == "seal"
     assert _group({"class": "Mammalia", "family": "Balaenopteridae"}) == "whale"
-    assert _group({"class": "Reptilia", "order": "Testudines"}) == "turtle"
-    assert _group({"class": "Actinopteri"}) == "fish"
+    assert _group({"class": "Testudines", "family": "Cheloniidae"}) == "turtle"
+    assert _group({"class": "Testudines", "family": "Testudinidae"}) == "reptile"
+    assert _group({"class": "Mammalia", "order": "Chiroptera", "family": "Pteropodidae"}) == "bat"
+    assert _group({"class": "Mammalia", "order": "Proboscidea", "family": "Elephantidae"}) == "mammal"
+    assert _group({"class": "Aves"}) == "bird"
+    assert _group({"class": "Actinopterygii"}) == "fish"
 
 
 def test_unwrap_keeps_paths_continuous_across_antimeridian():

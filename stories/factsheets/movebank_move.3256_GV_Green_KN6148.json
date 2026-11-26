@@ -1,0 +1,23 @@
+{
+ "animal_id": "movebank:move.3256:GV_Green_KN6148",
+ "species": "Grus vipio",
+ "scientific_name": "Grus vipio",
+ "based_on": {
+  "last_date": "2024-06-10"
+ },
+ "facts": {
+  "first_date": "Aug 13, 2018",
+  "last_date": "Jun 10, 2024",
+  "days_tracked": "2128 days",
+  "path_km": "31,030 km",
+  "max_displacement_km": "2,390 km",
+  "farthest_date": "Nov 30, 2021",
+  "northernmost_lat": "51.2°N",
+  "southernmost_lat": "28.9°N",
+  "longest_gap_days": "159 days",
+  "sex": "female",
+  "stage": "juvenile",
+  "species_rank_days": "the longest track among the 12 grus vipio tracks on this map"
+ },
+ "species_context": []
+}

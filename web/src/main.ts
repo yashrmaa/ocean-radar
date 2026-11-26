@@ -16,12 +16,15 @@ import type { AnimalDetail, Chunk, Group } from './data';
 import { loadAnimal, loadChunk, loadIndex, makeClock } from './data';
 
 const COLORS: Record<Group, [number, number, number]> = {
-  fish: [255, 170, 60], shark: [255, 86, 96], whale: [90, 205, 255], seal: [96, 140, 255],
-  turtle: [120, 230, 140], bird: [220, 160, 255], other: [200, 200, 200],
+  bird: [220, 160, 255], mammal: [240, 200, 90], bat: [190, 150, 120], reptile: [170, 220, 80],
+  amphibian: [60, 220, 200], insect: [255, 130, 200],
+  fish: [255, 150, 50], shark: [255, 86, 96], whale: [90, 205, 255], seal: [96, 140, 255],
+  turtle: [120, 230, 140], other: [200, 200, 200],
 };
 const LABELS: Record<Group, string> = {
-  fish: 'Fish', shark: 'Sharks', whale: 'Whales & dolphins', seal: 'Seals & sea lions',
-  turtle: 'Turtles', bird: 'Seabirds', other: 'Other',
+  bird: 'Birds', mammal: 'Land mammals', bat: 'Bats', reptile: 'Reptiles', amphibian: 'Amphibians',
+  insect: 'Insects', fish: 'Fish', shark: 'Sharks', whale: 'Whales & dolphins', seal: 'Seals & sea lions',
+  turtle: 'Sea turtles', other: 'Other',
 };
 const TRAIL_DAYS = 90;
 const GAP_DAYS = 5;
@@ -47,7 +50,15 @@ async function main() {
   const groupOf = (i: number) => index.species[String(index.animals[i].sp)].grp;
   const tStart = clock.toDay(index.data_start);
   const tEnd = clock.toDay(index.data_end);
-  state.now = tStart;
+  // Start replay at the beginning of the year with the most animals tracked (the data reaches back to
+  // the 1970s, when only a handful were).
+  const yearCounts = new Map<number, number>();
+  for (const a of index.animals) {
+    for (let y = clock.year(a.s); y <= clock.year(a.e); y++) yearCounts.set(y, (yearCounts.get(y) ?? 0) + 1);
+  }
+  const busiest = [...yearCounts.entries()].sort((a, b) => b[1] - a[1])[0]?.[0];
+  const tDefault = busiest ? Math.max(tStart, clock.toDay(`${busiest}-01-01`)) : tStart;
+  state.now = tDefault;
   Object.values(index.species).forEach((s) => state.groups.add(s.grp));
 
   // ---------- map ----------
@@ -55,7 +66,7 @@ async function main() {
   const map = new maplibregl.Map({
     container: 'map',
     style: 'https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json',
-    center: [-150, 20], zoom: 1.4, attributionControl: { compact: true },
+    center: [10, 25], zoom: 1.3, attributionControl: { compact: true },
   });
   const overlay = new MapboxOverlay({
     interleaved: false, layers: [],
@@ -254,7 +265,7 @@ async function main() {
     overlay.setProps({ layers });
     $('date').textContent = state.mode === 'replay' ? clock.fmt(state.now) : `Data to ${index.data_end}`;
     $('count').textContent = state.mode === 'replay'
-      ? `${count.toLocaleString()} animals at sea`
+      ? `${count.toLocaleString()} animals being tracked`
       : `${count.toLocaleString()} animals, faded by how long ago they were seen`;
     ($('slider') as HTMLInputElement).value = String(Math.round(state.now));
   }
@@ -413,7 +424,7 @@ async function main() {
   async function applyHash(initial: boolean) {
     const p = new URLSearchParams(location.hash.slice(1));
     const t = p.get('t');
-    if (t || initial) await setTime(t ? clock.toDay(t) : tStart);
+    if (t || initial) await setTime(t ? clock.toDay(t) : tDefault);
     const a = p.get('a');
     const i = a ? index.animals.findIndex((r) => r.id === a) : -1;
     if (i >= 0) { setPlaying(false); await select(i, { fly: true }); }

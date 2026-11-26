@@ -31,3 +31,14 @@ imos:
   notes: >
     data.gov.au lists AATAMS satellite relay tagging as CC BY 4.0; confirm the exact attribution
     wording IMOS asks for (IMOS acknowledgement statement) before public launch.
+
+movebank:
+  name: Movebank Data Repository (published animal tracking datasets)
+  url: https://datarepository.movebank.org/
+  license: Varies by dataset (CC0, CC BY 4.0 or CC BY-NC 4.0); shown on each card
+  license_url: https://datarepository.movebank.org/
+  redistribution: non_commercial
+  enabled: true
+  notes: >
+    Only published datasets are used, each with its own license and citation (shown per animal).
+    CC BY-NC datasets keep the site non-commercial. Domestic animals are excluded (config/movebank.yaml).

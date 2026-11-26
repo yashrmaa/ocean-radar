@@ -29,7 +29,7 @@ def build(con, now: datetime) -> None:
     con.execute("""
         CREATE OR REPLACE TEMP TABLE _animal_policy AS
         SELECT a.animal_id, s.sensitive
-        FROM animals a JOIN species s USING (aphia_id)
+        FROM animals a JOIN species s USING (taxon_key)
         WHERE list_contains(?, a.source_id)
     """, [publishable])
     con.execute(f"""

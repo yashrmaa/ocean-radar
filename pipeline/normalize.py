@@ -14,11 +14,12 @@ def _map_sql(col: str, mapping: dict) -> str:
 def build(con) -> None:
     con.execute(f"""
         CREATE OR REPLACE TABLE animals AS
-        SELECT a.animal_id, a.source_id, a.native_id, a.program, s.aphia_id,
+        SELECT a.animal_id, a.source_id, a.native_id, a.program, s.taxon_key,
                {_map_sql('a.sex', SEX)} AS sex,
                coalesce({_map_sql('a.stage', STAGE)},
                         CASE WHEN lower(a.species_label) LIKE 'juvenile %' THEN 'juvenile' END) AS stage,
-               nullif(trim(a.site), '') AS site, a.citation, a.dataset_url,
+               nullif(trim(a.site), '') AS site, a.citation, a.dataset_url, a.license, a.license_url,
+               coalesce(a.coarse, false) AS coarse,
                CAST(NULL AS VARCHAR) AS same_as
         FROM stg_animal a JOIN stg_animal_species s USING (animal_id)
     """)
@@ -37,13 +38,13 @@ def build(con) -> None:
     # keep the deployment (it has sex/stage) and drop the TOPP copy.
     con.execute("""
         CREATE OR REPLACE TEMP TABLE _starts AS
-        SELECT p.animal_id, a.source_id, a.aphia_id, p.t, p.lon, p.lat
+        SELECT p.animal_id, a.source_id, a.taxon_key, p.t, p.lon, p.lat
         FROM positions p JOIN animals a USING (animal_id)
         QUALIFY row_number() OVER (PARTITION BY p.animal_id ORDER BY p.t) = 1
     """)
     dupes = con.execute("""
         SELECT x.animal_id, y.animal_id
-        FROM _starts x JOIN _starts y ON x.aphia_id = y.aphia_id
+        FROM _starts x JOIN _starts y ON x.taxon_key = y.taxon_key
          AND x.source_id = 'atn_topp' AND y.source_id = 'atn_deployments'
          AND abs(epoch(x.t) - epoch(y.t)) <= 3 * 86400
          AND 2 * 6371 * asin(sqrt(sin(radians(y.lat - x.lat) / 2)^2

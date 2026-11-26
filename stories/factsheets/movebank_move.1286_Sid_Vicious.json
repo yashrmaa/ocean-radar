@@ -1,0 +1,23 @@
+{
+ "animal_id": "movebank:move.1286:Sid Vicious",
+ "species": "Gull-billed tern",
+ "scientific_name": "Gelochelidon nilotica",
+ "based_on": {
+  "last_date": "2019-01-07"
+ },
+ "facts": {
+  "first_date": "May 30, 2016",
+  "last_date": "Jan 7, 2019",
+  "days_tracked": "951 days",
+  "path_km": "12,520 km",
+  "max_displacement_km": "990 km",
+  "farthest_date": "Aug 4, 2018",
+  "northernmost_lat": "32.9°N",
+  "southernmost_lat": "26.8°N",
+  "release_site": "San Diego Bay National Wildlife Refuge",
+  "sex": "male",
+  "stage": "adult",
+  "species_rank_days": "the longest track among the 6 gull-billed tern tracks on this map"
+ },
+ "species_context": []
+}

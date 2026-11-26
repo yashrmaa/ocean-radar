@@ -1,0 +1,25 @@
+{
+ "animal_id": "movebank:move.1243:15LA04",
+ "species": "American woodcock",
+ "scientific_name": "Scolopax minor",
+ "based_on": {
+  "last_date": "2017-07-21"
+ },
+ "facts": {
+  "first_date": "Jan 24, 2015",
+  "last_date": "Jul 21, 2017",
+  "days_tracked": "908 days",
+  "path_km": "15,980 km",
+  "max_displacement_km": "2,970 km",
+  "farthest_date": "May 17, 2017",
+  "northernmost_lat": "47.7°N",
+  "southernmost_lat": "30.5°N",
+  "longest_gap_days": "109 days",
+  "release_site": "Sherburne WMA (LA)",
+  "sex": "female",
+  "stage": "adult",
+  "species_rank_days": "the second longest track among the 66 american woodcock tracks on this map",
+  "species_rank_distance": "the longest distance from its starting point among the 66 american woodcock tracks on this map"
+ },
+ "species_context": []
+}

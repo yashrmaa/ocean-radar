@@ -1,8 +1,8 @@
-# Ocean Radar
+# Wildlife Radar
 
-A replay map of publicly tracked marine animals: 2,029 tagged animals across 39 species,
-2002–2025, from NOAA's Animal Telemetry Network and Australia's IMOS Animal Tracking Facility.
-Press play, click an animal, read its record. See `spec.md` (what and why) and `plan.md` (how).
+A replay map of publicly tracked wild animals (birds, land mammals, bats, reptiles and sea life),
+from the Movebank Data Repository, NOAA's Animal Telemetry Network and Australia's IMOS Animal
+Tracking Facility. Press play, click an animal, read its record. Live at https://wildliferadar.yasharma.com. See `spec.md` (what and why) and `plan.md` (how).
 
 ## Run it
 
@@ -24,11 +24,12 @@ npm --prefix web run dev                        # http://localhost:5190
 |---|---|
 | `pipeline/sources/` | One adapter per data source (fetch + load into staging tables) |
 | `pipeline/config/sources.yaml` | License registry: which sources may be published; switch one off with `enabled: false` |
+| `pipeline/config/movebank.yaml` | Which Movebank datasets to include: licenses, size limit, excluded domestic species |
 | `pipeline/config/sensitivity.yaml` | Embargo days and coordinate rounding for threatened species |
 | `pipeline/config/species_overrides.yaml` | Fixes for species labels, display names, and per-sex photos |
 | `pipeline/policy.py` | Embargo, rounding and license gate. Everything published passes through it |
 | `stories/factsheets/` | Generated each build for the 50 top-ranked animals: the facts a story may use |
-| `stories/*.json` | Hand-written stories (13 so far). Numbers only as `{fact}` placeholders |
+| `stories/*.json` | Hand-written stories (50 so far). Numbers only as `{fact}` placeholders |
 | `stories/species_context.yaml` | General species knowledge stories may cite, each with a source |
 | `web/src/` | The map app (MapLibre + deck.gl, TypeScript) |
 | `spike/` | The original one-file prototype |

@@ -1,0 +1,24 @@
+{
+ "animal_id": "movebank:move.714:126694",
+ "species": "African cuckoo",
+ "scientific_name": "Cuculus gularis",
+ "based_on": {
+  "last_date": "2017-06-28"
+ },
+ "facts": {
+  "first_date": "Jun 2, 2013",
+  "last_date": "Jun 28, 2017",
+  "days_tracked": "1487 days",
+  "path_km": "10,430 km",
+  "max_displacement_km": "1,060 km",
+  "farthest_date": "Jan 25, 2017",
+  "northernmost_lat": "9.9°N",
+  "southernmost_lat": "4.4°N",
+  "longest_gap_days": "9 days",
+  "release_site": "Amurum Forest Reserve, Nigeria",
+  "sex": "male",
+  "species_rank_days": "the longest track among the 5 african cuckoo tracks on this map",
+  "species_rank_distance": "the longest distance from its starting point among the 5 african cuckoo tracks on this map"
+ },
+ "species_context": []
+}

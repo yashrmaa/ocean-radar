@@ -1,0 +1,23 @@
+{
+ "animal_id": "movebank:move.624:105864",
+ "species": "Pink-footed goose",
+ "scientific_name": "Anser brachyrhynchus",
+ "based_on": {
+  "last_date": "2013-06-20"
+ },
+ "facts": {
+  "first_date": "Mar 29, 2011",
+  "last_date": "Jun 20, 2013",
+  "days_tracked": "814 days",
+  "path_km": "11,180 km",
+  "max_displacement_km": "2,510 km",
+  "farthest_date": "Jul 22, 2012",
+  "northernmost_lat": "78.7°N",
+  "southernmost_lat": "55.3°N",
+  "longest_gap_days": "208 days",
+  "sex": "male",
+  "stage": "adult",
+  "species_rank_days": "the second longest track among the 47 pink-footed goose tracks on this map"
+ },
+ "species_context": []
+}

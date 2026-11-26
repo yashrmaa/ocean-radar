@@ -62,8 +62,8 @@ def check_story(story: dict, facts: dict, context_ids: set, last_date: str) -> l
 
 def build(con) -> None:
     animals = con.execute("""
-        SELECT a.animal_id, s.common_name, s.scientific_name, st.score, st.noisy, s.aphia_id
-        FROM published_animals a JOIN species s USING (aphia_id) JOIN animal_stats st USING (animal_id)
+        SELECT a.animal_id, s.common_name, s.scientific_name, st.score, st.noisy, s.taxon_key
+        FROM published_animals a JOIN species s USING (taxon_key) JOIN animal_stats st USING (animal_id)
         ORDER BY st.score DESC
     """).fetchall()
     facts: dict[str, dict] = {}
@@ -80,10 +80,10 @@ def build(con) -> None:
     # Pick story candidates: best scores, at most PER_SPECIES per species, no noisy tracks.
     per_species: dict[int, int] = {}
     candidates = []
-    for animal_id, common, sci, score, noisy, aphia in animals:
-        if noisy or per_species.get(aphia, 0) >= PER_SPECIES:
+    for animal_id, common, sci, score, noisy, taxon in animals:
+        if noisy or per_species.get(taxon, 0) >= PER_SPECIES:
             continue
-        per_species[aphia] = per_species.get(aphia, 0) + 1
+        per_species[taxon] = per_species.get(taxon, 0) + 1
         candidates.append((animal_id, common, sci))
         if len(candidates) >= TOP_N:
             break

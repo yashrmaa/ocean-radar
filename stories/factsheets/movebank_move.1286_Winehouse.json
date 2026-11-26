@@ -1,0 +1,25 @@
+{
+ "animal_id": "movebank:move.1286:Winehouse",
+ "species": "Gull-billed tern",
+ "scientific_name": "Gelochelidon nilotica",
+ "based_on": {
+  "last_date": "2014-09-17"
+ },
+ "facts": {
+  "first_date": "Jun 8, 2013",
+  "last_date": "Sep 17, 2014",
+  "days_tracked": "465 days",
+  "path_km": "6,330 km",
+  "max_displacement_km": "1,230 km",
+  "farthest_date": "Oct 28, 2013",
+  "northernmost_lat": "32.7°N",
+  "southernmost_lat": "25.5°N",
+  "longest_gap_days": "13 days",
+  "release_site": "San Diego Bay National Wildlife Refuge",
+  "sex": "male",
+  "stage": "adult",
+  "species_rank_days": "the second longest track among the 6 gull-billed tern tracks on this map",
+  "species_rank_distance": "the second longest distance from its starting point among the 6 gull-billed tern tracks on this map"
+ },
+ "species_context": []
+}

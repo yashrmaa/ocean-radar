@@ -1,0 +1,24 @@
+{
+ "animal_id": "movebank:move.1412:KLA",
+ "species": "Hudsonian godwit",
+ "scientific_name": "Limosa haemastica",
+ "based_on": {
+  "last_date": "2020-05-01"
+ },
+ "facts": {
+  "first_date": "Apr 1, 2019",
+  "last_date": "May 1, 2020",
+  "days_tracked": "396 days",
+  "path_km": "8,150 km",
+  "max_displacement_km": "7,710 km",
+  "farthest_date": "May 1, 2020",
+  "northernmost_lat": "23.5°N",
+  "southernmost_lat": "41.8°S",
+  "longest_gap_days": "307 days",
+  "sex": "male",
+  "stage": "adult",
+  "species_rank_days": "the third longest track among the 9 hudsonian godwit tracks on this map",
+  "species_rank_distance": "the third longest distance from its starting point among the 9 hudsonian godwit tracks on this map"
+ },
+ "species_context": []
+}

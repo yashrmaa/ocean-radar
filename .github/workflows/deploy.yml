@@ -17,7 +17,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 120   # the first run downloads ~5 GB of Movebank datasets; later runs use the cache
     steps:
       - uses: actions/checkout@v4
 

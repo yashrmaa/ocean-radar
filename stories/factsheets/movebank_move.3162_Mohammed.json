@@ -1,0 +1,24 @@
+{
+ "animal_id": "movebank:move.3162:Mohammed",
+ "species": "European honey buzzard",
+ "scientific_name": "Pernis apivorus",
+ "based_on": {
+  "last_date": "2018-09-25"
+ },
+ "facts": {
+  "first_date": "Aug 14, 2013",
+  "last_date": "Sep 25, 2018",
+  "days_tracked": "1868 days",
+  "path_km": "56,840 km",
+  "max_displacement_km": "7,610 km",
+  "farthest_date": "Feb 1, 2014",
+  "northernmost_lat": "62.8°N",
+  "southernmost_lat": "6.9°S",
+  "longest_gap_days": "35 days",
+  "sex": "male",
+  "stage": "juvenile",
+  "species_rank_days": "the longest track among the 7 european honey buzzard tracks on this map",
+  "species_rank_distance": "the second longest distance from its starting point among the 7 european honey buzzard tracks on this map"
+ },
+ "species_context": []
+}

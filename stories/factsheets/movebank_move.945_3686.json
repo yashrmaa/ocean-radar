@@ -1,0 +1,23 @@
+{
+ "animal_id": "movebank:move.945:3686",
+ "species": "Great white pelican",
+ "scientific_name": "Pelecanus onocrotalus",
+ "based_on": {
+  "last_date": "2017-12-01"
+ },
+ "facts": {
+  "first_date": "Jan 1, 2016",
+  "last_date": "Dec 1, 2017",
+  "days_tracked": "700 days",
+  "path_km": "1,880 km",
+  "max_displacement_km": "1,400 km",
+  "farthest_date": "Dec 1, 2017",
+  "northernmost_lat": "30.1°N",
+  "southernmost_lat": "17.5°N",
+  "longest_gap_days": "31 days",
+  "sex": "male",
+  "stage": "juvenile",
+  "species_rank_days": "the longest track among the 13 great white pelican tracks on this map"
+ },
+ "species_context": []
+}

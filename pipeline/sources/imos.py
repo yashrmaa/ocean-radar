@@ -39,7 +39,7 @@ def load(con) -> None:
           AND device_id IN (SELECT DISTINCT device_id FROM _imos WHERE layer = 'dm')
     """)
     con.execute(f"""
-        INSERT INTO stg_animal
+        INSERT INTO stg_animal (animal_id, source_id, native_id, program, species_label, scientific_name, sex, stage, site, citation, dataset_url)
         SELECT 'imos:' || device_id, '{SOURCE_ID}', device_id, 'IMOS AATAMS ' || any_value(sattag_program),
                mode(common_name), NULL, mode(sex), mode(age_class), mode(release_site),
                '{CITATION}', '{PORTAL}'

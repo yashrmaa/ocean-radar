@@ -35,8 +35,8 @@ def _percentiles(values: dict) -> dict:
 
 def build(con) -> None:
     meta = {r[0]: r for r in con.execute("""
-        SELECT a.animal_id, a.aphia_id, s.common_name, s.grp, a.sex, a.stage, a.site, q.noisy
-        FROM published_animals a JOIN species s USING (aphia_id) JOIN animal_qc q USING (animal_id)
+        SELECT a.animal_id, a.taxon_key, s.common_name, s.grp, a.sex, a.stage, a.site, q.noisy
+        FROM published_animals a JOIN species s USING (taxon_key) JOIN animal_qc q USING (animal_id)
     """).fetchall()}
     tracks = defaultdict(list)
     for animal_id, t, lon, lat in con.execute(
@@ -49,7 +49,7 @@ def build(con) -> None:
 
     facts, stats = [], {}
     for animal_id, pts in tracks.items():
-        _, aphia, common, grp, sex, stage, site, noisy = meta[animal_id]
+        _, taxon, common, grp, sex, stage, site, noisy = meta[animal_id]
         first, last = pts[0], pts[-1]
         steps = [haversine_km(a[1], a[2], b[1], b[2]) for a, b in itertools.pairwise(pts)]
         path_km = sum(steps)
@@ -89,7 +89,7 @@ def build(con) -> None:
             add("deepest_dive_m", round(depth), f"{round(depth):,} m", {"dive_summary": t_d})
             if minutes:
                 add("longest_dive_min", round(minutes), f"{round(minutes)} minutes", {"dive_summary": t_m})
-        stats[animal_id] = {"aphia": aphia, "common": common, "grp": grp, "days": days, "path_km": path_km,
+        stats[animal_id] = {"taxon": taxon, "common": common, "grp": grp, "days": days, "path_km": path_km,
                                 "max_disp": max_disp, "noisy": bool(noisy), "rich": int(bool(sex)) + int(bool(stage))
                                 + int(animal_id in dives), "first": first[0], "last": last[0]}
 
@@ -97,8 +97,8 @@ def build(con) -> None:
     by_species = defaultdict(list)
     for a, s in stats.items():
         if not s["noisy"]:
-            by_species[s["aphia"]].append(a)
-    for aphia, ids in by_species.items():
+            by_species[s["taxon"]].append(a)
+    for taxon, ids in by_species.items():
         if len(ids) < 5:
             continue
         for key, fid in (("days", "species_rank_days"), ("max_disp", "species_rank_distance")):
@@ -115,17 +115,17 @@ def build(con) -> None:
     p_disp = _percentiles({a: s["max_disp"] for a, s in stats.items()})
     species_n = defaultdict(int)
     for s in stats.values():
-        species_n[s["aphia"]] += 1
+        species_n[s["taxon"]] += 1
     rows = []
     for a, s in stats.items():
-        rarity = 1 / (1 + species_n[s["aphia"]] / 20)
+        rarity = 1 / (1 + species_n[s["taxon"]] / 20)
         score = 0.35 * p_days[a] + 0.35 * p_disp[a] + 0.05 * s["rich"] + 0.15 * rarity
         if s["noisy"]:
             score *= 0.5
-        rows.append((a, s["aphia"], s["grp"], round(s["days"]), round(s["path_km"]), round(s["max_disp"]),
+        rows.append((a, s["taxon"], s["grp"], round(s["days"]), round(s["path_km"]), round(s["max_disp"]),
                      s["noisy"], s["first"], s["last"], round(score, 4)))
 
     replace_table(con, "facts", ["animal_id", "fact_id", "value", "display", "evidence"], facts)
-    replace_table(con, "animal_stats", ["animal_id", "aphia_id", "grp", "days", "path_km", "max_disp_km",
+    replace_table(con, "animal_stats", ["animal_id", "taxon_key", "grp", "days", "path_km", "max_disp_km",
                                         "noisy", "first_t", "last_t", "score"], rows)
     log(f"derive: {len(facts):,} facts for {len(stats)} animals")

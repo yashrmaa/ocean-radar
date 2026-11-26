@@ -1,0 +1,24 @@
+{
+ "animal_id": "movebank:move.986:JBCC_1",
+ "species": "Upland sandpiper",
+ "scientific_name": "Bartramia longicauda",
+ "based_on": {
+  "last_date": "2018-01-28"
+ },
+ "facts": {
+  "first_date": "May 25, 2016",
+  "last_date": "Jan 28, 2018",
+  "days_tracked": "613 days",
+  "path_km": "18,570 km",
+  "max_displacement_km": "5,130 km",
+  "farthest_date": "Jan 3, 2017",
+  "northernmost_lat": "41.7°N",
+  "southernmost_lat": "2.2°S",
+  "release_site": "Joint Base Cape Code (airfield), MA, USA",
+  "sex": "male",
+  "stage": "adult",
+  "species_rank_days": "the second longest track among the 6 upland sandpiper tracks on this map",
+  "species_rank_distance": "the third longest distance from its starting point among the 6 upland sandpiper tracks on this map"
+ },
+ "species_context": []
+}

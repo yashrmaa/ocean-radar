@@ -35,9 +35,9 @@
    ]
   },
   {
-   "text": "That is {species_rank_distance}.",
+   "text": "That makes it {species_rank_days}.",
    "facts": [
-    "species_rank_distance"
+    "species_rank_days"
    ]
   }
  ]

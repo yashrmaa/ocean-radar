@@ -12,6 +12,6 @@ Staging tables (created by pipeline.build):
      kind: 'fix' (an observed location) or 'modeled' (state-space model estimate)
   stg_dive(animal_id, t, max_depth_m, n_dives, max_dive_min)
 """
-from . import atn_deployments, atn_topp, imos
+from . import atn_deployments, atn_topp, imos, movebank
 
-ALL = [atn_topp, atn_deployments, imos]
+ALL = [atn_topp, atn_deployments, imos, movebank]

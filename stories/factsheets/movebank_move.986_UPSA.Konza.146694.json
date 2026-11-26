@@ -1,0 +1,25 @@
+{
+ "animal_id": "movebank:move.986:UPSA.Konza.146694",
+ "species": "Upland sandpiper",
+ "scientific_name": "Bartramia longicauda",
+ "based_on": {
+  "last_date": "2017-04-15"
+ },
+ "facts": {
+  "first_date": "Jun 15, 2016",
+  "last_date": "Apr 15, 2017",
+  "days_tracked": "304 days",
+  "path_km": "17,150 km",
+  "max_displacement_km": "8,920 km",
+  "farthest_date": "Feb 15, 2017",
+  "northernmost_lat": "38.8°N",
+  "southernmost_lat": "35.5°S",
+  "longest_gap_days": "30 days",
+  "release_site": "Konza Prairie, KS",
+  "sex": "female",
+  "stage": "adult",
+  "species_rank_days": "the third longest track among the 6 upland sandpiper tracks on this map",
+  "species_rank_distance": "the second longest distance from its starting point among the 6 upland sandpiper tracks on this map"
+ },
+ "species_context": []
+}

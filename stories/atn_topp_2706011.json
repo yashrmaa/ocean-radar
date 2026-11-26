@@ -6,12 +6,11 @@
  },
  "sentences": [
   {
-   "text": "This loggerhead was tracked for {days_tracked}, from {first_date} to {last_date}: {species_rank_days}.",
+   "text": "This loggerhead was tracked for {days_tracked}, from {first_date} to {last_date}.",
    "facts": [
     "days_tracked",
     "first_date",
-    "last_date",
-    "species_rank_days"
+    "last_date"
    ]
   },
   {
@@ -21,7 +20,7 @@
    ]
   },
   {
-   "text": "Its last position was its farthest, {max_displacement_km} from where its track began, {species_rank_distance}.",
+   "text": "Its last position was its farthest, {max_displacement_km} from where its track began: {species_rank_distance}.",
    "facts": [
     "max_displacement_km",
     "species_rank_distance"

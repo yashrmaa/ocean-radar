@@ -5,10 +5,12 @@ Commons file named in species_overrides.yaml `photo:` (per variant: default/fema
 Only Creative Commons and public-domain images are accepted. Thumbnails are downloaded at build
 time and served from our own site, never hot-linked.
 
-Table `photos(aphia_id, variant, thumb, file_url, credit, license, license_url, wiki_url)`.
+Table `photos(taxon_key, variant, thumb, file_url, credit, license, license_url, wiki_url)`.
 """
 import json
 import re
+import time
+import urllib.error
 import urllib.parse
 
 import yaml
@@ -18,7 +20,7 @@ from .util import CONFIG, RAW, cached_download, http_json, log, replace_table
 CACHE = RAW / "photos.json"
 THUMBS = RAW / "photos"
 FREE = ("cc", "public domain", "pd")
-WIDTH = 640
+WIDTH = 500  # one of Wikimedia's standard thumbnail sizes (others get rate-limited)
 
 
 def _strip_html(s: str | None) -> str:
@@ -75,14 +77,14 @@ def _file_info(files: list[str]) -> dict[str, dict]:
 def build(con, offline: bool = False) -> None:
     overrides = (yaml.safe_load((CONFIG / "species_overrides.yaml").read_text()).get("photo") or {})
     cache = json.loads(CACHE.read_text()) if CACHE.exists() else {}
-    species = con.execute("""SELECT aphia_id, scientific_name FROM species
-                             WHERE aphia_id IN (SELECT aphia_id FROM published_animals)""").fetchall()
+    species = con.execute("""SELECT taxon_key, scientific_name, coalesce(wiki_title, scientific_name) FROM species
+                             WHERE taxon_key IN (SELECT taxon_key FROM published_animals)""").fetchall()
 
-    wanted = {}  # (aphia, variant) -> (commons file or None, wiki title)
-    for aphia, sci in species:
+    wanted = {}  # (taxon, variant) -> (commons file or None, Wikipedia title to take the lead image from)
+    for taxon, sci, title in species:
         for variant, file in (overrides.get(sci) or {}).items():
-            wanted[(aphia, variant)] = (file, sci)
-        wanted.setdefault((aphia, "default"), (None, sci))
+            wanted[(taxon, variant)] = (file, title)
+        wanted.setdefault((taxon, "default"), (None, title))
     keys = [f"{a}:{v}" for a, v in wanted]
     if not offline and any(k not in cache for k in keys):
         leads = _lead_images([sci for (a, v), (f, sci) in wanted.items() if f is None])
@@ -107,10 +109,15 @@ def build(con, offline: bool = False) -> None:
         ext = path.rsplit(".", 1)[-1].lower() if "." in path.rsplit("/", 1)[-1] else "jpg"
         ext = ext if ext in ("jpg", "jpeg", "png", "webp", "gif") else "jpg"
         thumb = THUMBS / f"{aphia}-{variant}.{ext}"
-        if not offline:
-            cached_download(rec["thumb_url"], thumb)
+        if not offline and not thumb.exists():
+            try:
+                cached_download(rec["thumb_url"], thumb)
+                time.sleep(0.5)  # be gentle with upload.wikimedia.org
+            except urllib.error.HTTPError as e:
+                missing.append(f"{sci} ({variant}: HTTP {e.code}, retried next build)")
+                continue
         rows.append((aphia, variant, thumb.name, rec["file_url"], rec["credit"], rec["license"],
                      rec["license_url"], rec["wiki_url"]))
-    replace_table(con, "photos", ["aphia_id", "variant", "thumb", "file_url", "credit", "license",
+    replace_table(con, "photos", ["taxon_key", "variant", "thumb", "file_url", "credit", "license",
                                   "license_url", "wiki_url"], rows)
     log(f"photos: {len(rows)} images" + (f"; missing: {', '.join(missing)}" if missing else ""))

@@ -6,11 +6,10 @@
  },
  "sentences": [
   {
-   "text": "This blue whale was tracked for {days_tracked}, starting on {first_date}: {species_rank_days}.",
+   "text": "This blue whale was tracked for {days_tracked}, starting on {first_date}.",
    "facts": [
     "days_tracked",
-    "first_date",
-    "species_rank_days"
+    "first_date"
    ]
   },
   {

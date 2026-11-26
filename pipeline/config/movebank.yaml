@@ -1,0 +1,34 @@
+# Movebank Data Repository selection (https://datarepository.movebank.org).
+# Published, citable tracking datasets; downloads need no account.
+
+# Licenses we may publish. The site is non-commercial, so CC BY-NC is allowed.
+licenses:
+  CC0 1.0 Universal: CC0 1.0
+  Attribution 4.0 International: CC BY 4.0
+  Attribution-NonCommercial 4.0 International: CC BY-NC 4.0
+
+# Skip datasets whose location files are larger than this (MB). The 317 datasets under 100 MB
+# total about 5 GB to download once; raw files are deleted after shrinking to daily positions.
+max_dataset_mb: 100
+
+# Not wildlife, or tracks that would reveal where people live (pets, livestock, homing pigeons).
+exclude_species:
+  - Felis catus
+  - Canis familiaris
+  - Canis lupus familiaris
+  - Columba livia
+  - Bos taurus
+  - Bos indicus
+  - Ovis aries
+  - Capra hircus
+  - Equus caballus
+  - Equus asinus
+  - Sus scrofa domesticus
+  - Gallus gallus
+  - Gallus gallus domesticus
+  - Homo sapiens
+  - Lama glama
+  - Rangifer tarandus tarandus   # herded reindeer
+
+# Sensor types whose positions are coarse (light-level geolocators); shown with a precision warning.
+coarse_sensors: [solar-geolocator, solar-geolocator-raw, solar-geolocator-twilight]

@@ -6,13 +6,12 @@
  },
  "sentences": [
   {
-   "text": "This {stage} {sex} green turtle was tagged at {release_site} and tracked for {days_tracked}: {species_rank_days}.",
+   "text": "This {stage} {sex} green turtle was tagged at {release_site} and tracked for {days_tracked}.",
    "facts": [
     "stage",
     "sex",
     "release_site",
-    "days_tracked",
-    "species_rank_days"
+    "days_tracked"
    ]
   },
   {

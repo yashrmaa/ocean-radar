@@ -1,6 +1,6 @@
 // Loading and decoding the static assets written by pipeline/emit.py.
 
-export type Group = 'fish' | 'shark' | 'whale' | 'seal' | 'turtle' | 'bird' | 'other';
+export type Group = 'bird' | 'mammal' | 'bat' | 'reptile' | 'amphibian' | 'insect' | 'fish' | 'shark' | 'whale' | 'seal' | 'turtle' | 'other';
 
 export interface Species { common: string; sci: string; grp: Group; iucn: string | null; sensitive: boolean }
 export interface Photo { src: string; file: string; credit: string; license: string; license_url: string | null; wiki: string }
@@ -39,6 +39,7 @@ export interface AnimalDetail {
   summary: string;
   story: Story | null;
   program: string | null; citation: string | null; dataset_url: string | null;
+  license: string | null; license_url: string | null;
   track: [number, number, number, number, number | null, number][]; // day, lon, lat, kind(0 fix/1 modeled), err_km, coarsened
 }
 

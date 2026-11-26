@@ -1,0 +1,23 @@
+{
+ "animal_id": "movebank:move.3256:GV_Torey_KN6168",
+ "species": "Grus vipio",
+ "scientific_name": "Grus vipio",
+ "based_on": {
+  "last_date": "2023-10-13"
+ },
+ "facts": {
+  "first_date": "Aug 3, 2018",
+  "last_date": "Oct 13, 2023",
+  "days_tracked": "1897 days",
+  "path_km": "13,560 km",
+  "max_displacement_km": "2,410 km",
+  "farthest_date": "Nov 6, 2019",
+  "northernmost_lat": "50.5°N",
+  "southernmost_lat": "28.8°N",
+  "longest_gap_days": "359 days",
+  "sex": "female",
+  "stage": "juvenile",
+  "species_rank_distance": "the third longest distance from its starting point among the 12 grus vipio tracks on this map"
+ },
+ "species_context": []
+}

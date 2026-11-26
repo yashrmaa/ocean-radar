@@ -1,0 +1,23 @@
+{
+ "animal_id": "movebank:move.1386:154752741",
+ "species": "Glaucous gull",
+ "scientific_name": "Larus hyperboreus",
+ "based_on": {
+  "last_date": "2019-07-30"
+ },
+ "facts": {
+  "first_date": "Jul 22, 2018",
+  "last_date": "Jul 30, 2019",
+  "days_tracked": "372 days",
+  "path_km": "17,180 km",
+  "max_displacement_km": "2,450 km",
+  "farthest_date": "Mar 22, 2019",
+  "northernmost_lat": "64.2°N",
+  "southernmost_lat": "48.4°N",
+  "longest_gap_days": "6 days",
+  "release_site": "Coats Island",
+  "sex": "female",
+  "stage": "adult"
+ },
+ "species_context": []
+}

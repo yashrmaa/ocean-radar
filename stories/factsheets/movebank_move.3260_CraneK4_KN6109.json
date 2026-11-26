@@ -1,0 +1,23 @@
+{
+ "animal_id": "movebank:move.3260:CraneK4_KN6109",
+ "species": "Demoiselle crane",
+ "scientific_name": "Anthropoides virgo",
+ "based_on": {
+  "last_date": "2024-03-19"
+ },
+ "facts": {
+  "first_date": "Jul 9, 2018",
+  "last_date": "Mar 19, 2024",
+  "days_tracked": "2080 days",
+  "path_km": "50,930 km",
+  "max_displacement_km": "3,610 km",
+  "farthest_date": "Jan 8, 2022",
+  "northernmost_lat": "51.6°N",
+  "southernmost_lat": "20.8°N",
+  "longest_gap_days": "103 days",
+  "sex": "male",
+  "stage": "juvenile",
+  "species_rank_days": "the longest track among the 81 demoiselle crane tracks on this map"
+ },
+ "species_context": []
+}

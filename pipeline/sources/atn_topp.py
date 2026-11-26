@@ -15,7 +15,7 @@ def fetch(refresh: bool) -> None:
 def load(con) -> None:
     # ERDDAP CSVs have a second header row of units, hence skip=2 with explicit names.
     con.execute(f"""
-        INSERT INTO stg_animal
+        INSERT INTO stg_animal (animal_id, source_id, native_id, program, species_label, scientific_name, sex, stage, site, citation, dataset_url)
         SELECT DISTINCT 'atn_topp:' || topp_id, '{SOURCE_ID}', topp_id::VARCHAR, 'Stanford TOPP',
                common_name, nullif(trim(genus || ' ' || species), ''), NULL, NULL, NULL,
                'Tagging of Pacific Predators (TOPP), Stanford University, via U.S. IOOS Animal Telemetry Network',

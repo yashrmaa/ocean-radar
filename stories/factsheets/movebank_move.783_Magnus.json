@@ -1,0 +1,23 @@
+{
+ "animal_id": "movebank:move.783:Magnus",
+ "species": "Grey plover",
+ "scientific_name": "Pluvialis squatarola",
+ "based_on": {
+  "last_date": "2012-12-02"
+ },
+ "facts": {
+  "first_date": "Apr 5, 2011",
+  "last_date": "Dec 2, 2012",
+  "days_tracked": "607 days",
+  "path_km": "13,030 km",
+  "max_displacement_km": "3,530 km",
+  "farthest_date": "Jun 22, 2012",
+  "northernmost_lat": "71.0°N",
+  "southernmost_lat": "53.4°N",
+  "longest_gap_days": "22 days",
+  "release_site": "Lower Saxony Wadden Sea",
+  "sex": "female",
+  "species_rank_days": "the third longest track among the 11 grey plover tracks on this map"
+ },
+ "species_context": []
+}

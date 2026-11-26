@@ -1,0 +1,25 @@
+{
+ "animal_id": "movebank:move.354:Halina",
+ "species": "Montagu's harrier",
+ "scientific_name": "Circus pygargus",
+ "based_on": {
+  "last_date": "2010-06-07"
+ },
+ "facts": {
+  "first_date": "Jul 8, 2007",
+  "last_date": "Jun 7, 2010",
+  "days_tracked": "1065 days",
+  "path_km": "19,860 km",
+  "max_displacement_km": "5,230 km",
+  "farthest_date": "Dec 21, 2007",
+  "northernmost_lat": "53.8°N",
+  "southernmost_lat": "9.3°N",
+  "longest_gap_days": "359 days",
+  "release_site": "Eastern sub-population",
+  "sex": "female",
+  "stage": "adult",
+  "species_rank_days": "the longest track among the 8 montagu's harrier tracks on this map",
+  "species_rank_distance": "the longest distance from its starting point among the 8 montagu's harrier tracks on this map"
+ },
+ "species_context": []
+}

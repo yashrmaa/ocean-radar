@@ -1,0 +1,22 @@
+{
+ "animal_id": "movebank:move.3260:CraneK3_KN6108",
+ "species": "Demoiselle crane",
+ "scientific_name": "Anthropoides virgo",
+ "based_on": {
+  "last_date": "2021-11-03"
+ },
+ "facts": {
+  "first_date": "Jul 9, 2018",
+  "last_date": "Nov 3, 2021",
+  "days_tracked": "1213 days",
+  "path_km": "32,530 km",
+  "max_displacement_km": "3,920 km",
+  "farthest_date": "Feb 16, 2021",
+  "northernmost_lat": "50.2°N",
+  "southernmost_lat": "16.4°N",
+  "longest_gap_days": "22 days",
+  "sex": "female",
+  "stage": "juvenile"
+ },
+ "species_context": []
+}

@@ -1,0 +1,22 @@
+{
+ "animal_id": "movebank:move.389:12",
+ "species": "Lappet-faced vulture",
+ "scientific_name": "Torgos tracheliotus",
+ "based_on": {
+  "last_date": "2010-02-21"
+ },
+ "facts": {
+  "first_date": "Feb 7, 2009",
+  "last_date": "Feb 21, 2010",
+  "days_tracked": "379 days",
+  "path_km": "22,040 km",
+  "max_displacement_km": "1,080 km",
+  "farthest_date": "Dec 6, 2009",
+  "northernmost_lat": "18.3°S",
+  "southernmost_lat": "28.3°S",
+  "release_site": "tags deployed in and near Etosha National Park in Namibia",
+  "sex": "male",
+  "stage": "adult"
+ },
+ "species_context": []
+}

@@ -51,10 +51,12 @@ export function renderCard(index: Index, row: AnimalRow, d: AnimalDetail): strin
   const coarse = d.track.some((p) => p[5]);
   const iucn = sp.iucn && IUCN[sp.iucn];
 
+  const lowerName = sp.common.replace(/^\S+/, (w) => (/^(Pacific|Atlantic|African|American|Asian|European|Indian|Australian|Arctic|Antarctic|Galapagos|California|Weddell|Eurasian|Siberian|Egyptian|Cape|Canada|Swainson's|Bewick's|Blainville's)$/.test(w) ? w : w.toLowerCase()));
+  const aName = `${/^[aeiou]/i.test(lowerName) ? 'an' : 'a'} ${lowerName}`;
   const photo = ph ? `
     <figure>
-      <a href="${esc(ph.wiki)}" target="_blank" rel="noopener"><img src="${esc(assetUrl(ph.src))}" alt="A ${esc(sp.common.toLowerCase())}" loading="lazy"></a>
-      <figcaption>A ${esc(sp.common.toLowerCase())}, not this individual. Photo:
+      <a href="${esc(ph.wiki)}" target="_blank" rel="noopener"><img src="${esc(assetUrl(ph.src))}" alt="${esc(aName)}" loading="lazy"></a>
+      <figcaption>${esc(cap(aName))}, not this individual. Photo:
         <a href="${esc(ph.file)}" target="_blank" rel="noopener">${esc(ph.credit)}</a>,
         ${ph.license_url ? `<a href="${esc(ph.license_url)}" target="_blank" rel="noopener">${esc(ph.license)}</a>` : esc(ph.license)}</figcaption>
     </figure>` : '';
@@ -76,13 +78,14 @@ export function renderCard(index: Index, row: AnimalRow, d: AnimalDetail): strin
     ${d.story ? renderStory(d.story, d.facts) : `<p>${esc(d.summary)}</p>`}
     <dl class="facts">${facts}</dl>
     ${records}
-    ${row.noisy ? '<div class="note warn">This tag estimated positions from daylight, which is imprecise. The track jumps around and the distance travelled is overstated.</div>' : ''}
+    ${row.noisy ? '<div class="note warn">Positions from this tag are imprecise (estimated from daylight, or with large errors). The track jumps around and the distance travelled is overstated.</div>' : ''}
     ${coarse ? '<div class="note">This species is threatened: its most recent positions are delayed and rounded to protect it.</div>' : ''}
     <div class="note">${unknowns.join(' ')} One position per day is shown; dashed lines mark stretches with no positions.</div>
     <div class="actions"><button data-act="fit">Show whole track</button><button data-act="start">Replay from start</button><button data-act="share">Copy link</button></div>
     <div class="src">
-      Data: <a href="${esc(d.dataset_url || src.url)}" target="_blank" rel="noopener">${esc(src.name)}</a> ·
-      ${src.license_url ? `<a href="${esc(src.license_url)}" target="_blank" rel="noopener">${esc(src.license)}</a>` : esc(src.license)}
+      Data: <a href="${esc(d.dataset_url || src.url)}" target="_blank" rel="noopener">${esc(d.license ? (d.program || src.name) : src.name)}</a> ·
+      ${(() => { const lic = d.license || src.license, url = d.license ? d.license_url : src.license_url;
+        return url ? `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(lic)}</a>` : esc(lic); })()}
       ${d.citation ? `<br>Cite: ${esc(d.citation)}` : ''}
       ${d.program ? `<br>Program: ${esc(d.program)}` : ''}
     </div>`;
@@ -92,7 +95,7 @@ export function renderAbout(index: Index): string {
   const sources = Object.values(index.sources)
     .map((s) => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a>, ${esc(s.license)}</li>`).join('');
   return `
-    <p>Every dot is a real animal that researchers tagged, from public tracking data:
+    <p>Every dot is a real wild animal that researchers tagged, from public tracking data:
       ${index.animals.length.toLocaleString()} animals across ${Object.keys(index.species).length} species,
       ${index.data_start.slice(0, 4)}–${index.data_end.slice(0, 4)}.</p>
     <ul>

@@ -1,0 +1,22 @@
+{
+ "animal_id": "movebank:move.483:2187",
+ "species": "Short-toed snake eagle",
+ "scientific_name": "Circaetus gallicus",
+ "based_on": {
+  "last_date": "2014-06-01"
+ },
+ "facts": {
+  "first_date": "Jul 12, 2012",
+  "last_date": "Jun 1, 2014",
+  "days_tracked": "689 days",
+  "path_km": "12,020 km",
+  "max_displacement_km": "2,360 km",
+  "farthest_date": "Nov 30, 2013",
+  "northernmost_lat": "31.8°N",
+  "southernmost_lat": "12.1°N",
+  "sex": "female",
+  "stage": "adult",
+  "species_rank_days": "the longest track among the 11 short-toed snake eagle tracks on this map"
+ },
+ "species_context": []
+}

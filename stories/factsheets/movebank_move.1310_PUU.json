@@ -1,0 +1,25 @@
+{
+ "animal_id": "movebank:move.1310:PUU",
+ "species": "Caspian tern",
+ "scientific_name": "Hydroprogne caspia",
+ "based_on": {
+  "last_date": "2019-11-15"
+ },
+ "facts": {
+  "first_date": "Jul 30, 2018",
+  "last_date": "Nov 15, 2019",
+  "days_tracked": "473 days",
+  "path_km": "22,340 km",
+  "max_displacement_km": "5,740 km",
+  "farthest_date": "Nov 20, 2018",
+  "northernmost_lat": "62.2°N",
+  "southernmost_lat": "10.7°N",
+  "longest_gap_days": "186 days",
+  "release_site": "Baltic Sea archipelago",
+  "sex": "female",
+  "stage": "adult",
+  "species_rank_days": "the third longest track among the 19 caspian tern tracks on this map",
+  "species_rank_distance": "the third longest distance from its starting point among the 19 caspian tern tracks on this map"
+ },
+ "species_context": []
+}

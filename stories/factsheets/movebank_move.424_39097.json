@@ -1,0 +1,24 @@
+{
+ "animal_id": "movebank:move.424:39097",
+ "species": "Snowy owl",
+ "scientific_name": "Bubo scandiacus",
+ "based_on": {
+  "last_date": "2010-04-24"
+ },
+ "facts": {
+  "first_date": "Mar 31, 2008",
+  "last_date": "Apr 24, 2010",
+  "days_tracked": "754 days",
+  "path_km": "6,690 km",
+  "max_displacement_km": "1,010 km",
+  "farthest_date": "Apr 24, 2009",
+  "northernmost_lat": "67.0°N",
+  "southernmost_lat": "59.6°N",
+  "longest_gap_days": "306 days",
+  "release_site": "Bylot Island (Canada)",
+  "sex": "female",
+  "stage": "adult",
+  "species_rank_distance": "the third longest distance from its starting point among the 7 snowy owl tracks on this map"
+ },
+ "species_context": []
+}

@@ -3,6 +3,7 @@
   uv run python -m pipeline.build              # fetch (cached) + full build
   uv run python -m pipeline.build --refresh    # re-download all sources
   uv run python -m pipeline.build --offline    # never touch the network (fail if a cache is missing)
+  uv run python -m pipeline.build --skip-fetch # use cached downloads, but allow species/photo lookups
   uv run python -m pipeline.build --now 2026-11-25   # pin "today" (embargo cut), for reproducible builds
 """
 from __future__ import annotations
@@ -19,7 +20,8 @@ from .util import DATA, WAREHOUSE, log
 STAGING = """
 CREATE OR REPLACE TABLE stg_animal (
   animal_id VARCHAR, source_id VARCHAR, native_id VARCHAR, program VARCHAR, species_label VARCHAR,
-  scientific_name VARCHAR, sex VARCHAR, stage VARCHAR, site VARCHAR, citation VARCHAR, dataset_url VARCHAR);
+  scientific_name VARCHAR, sex VARCHAR, stage VARCHAR, site VARCHAR, citation VARCHAR, dataset_url VARCHAR,
+  license VARCHAR, license_url VARCHAR, coarse BOOLEAN DEFAULT false);
 CREATE OR REPLACE TABLE stg_position (
   animal_id VARCHAR, t TIMESTAMP, lon DOUBLE, lat DOUBLE, kind VARCHAR, err_km DOUBLE);
 CREATE OR REPLACE TABLE stg_dive (
@@ -31,12 +33,13 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--refresh", action="store_true")
     ap.add_argument("--offline", action="store_true")
+    ap.add_argument("--skip-fetch", action="store_true", help="use cached downloads, but allow lookups")
     ap.add_argument("--now", help="ISO date treated as today for the embargo")
     args = ap.parse_args()
     now = (datetime.fromisoformat(args.now).replace(tzinfo=UTC) if args.now
            else datetime.now(UTC))
 
-    if not args.offline:
+    if not (args.offline or args.skip_fetch):
         for src in SOURCES:
             log(f"fetch {src.SOURCE_ID}")
             src.fetch(args.refresh)

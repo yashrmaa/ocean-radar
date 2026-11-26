@@ -46,8 +46,8 @@ def build(con, now: datetime) -> None:
     sources_cfg, sens = load_config()
 
     animals = con.execute("""
-        SELECT a.animal_id, a.aphia_id, a.sex, a.stage, a.source_id, a.program, a.site, a.citation,
-               a.dataset_url, st.noisy, st.score, st.first_t, st.last_t, c.summary, c.story
+        SELECT a.animal_id, a.taxon_key, a.sex, a.stage, a.source_id, a.program, a.site, a.citation,
+               a.dataset_url, st.noisy, st.score, st.first_t, st.last_t, c.summary, c.story, a.license, a.license_url
         FROM published_animals a JOIN animal_stats st USING (animal_id) JOIN card_text c USING (animal_id)
         ORDER BY st.score DESC
     """).fetchall()
@@ -98,7 +98,7 @@ def build(con, now: datetime) -> None:
             animal_id = a[0]
             shard[animal_id] = {
                 "facts": facts[animal_id], "summary": a[13], "story": json.loads(a[14]) if a[14] else None,
-                "program": a[5], "citation": a[7], "dataset_url": a[8],
+                "program": a[5], "citation": a[7], "dataset_url": a[8], "license": a[15], "license_url": a[16],
                 "track": [[round(to_days(t), 3), round(x, 4), round(y, 4), KIND.get(k, 1),
                            None if e is None else round(e, 2), int(bool(c))]
                           for t, x, y, k, e, c in tracks[animal_id]],
@@ -117,8 +117,8 @@ def build(con, now: datetime) -> None:
                                       "license": lic, "license_url": lic_url, "wiki": wiki}
 
     species = {r[0]: {"common": r[1], "sci": r[2], "grp": r[3], "iucn": r[4], "sensitive": r[5]}
-               for r in con.execute("""SELECT aphia_id, common_name, scientific_name, grp, iucn_status, sensitive
-                                       FROM species WHERE aphia_id IN (SELECT aphia_id FROM published_animals)""").fetchall()}
+               for r in con.execute("""SELECT taxon_key, common_name, scientific_name, grp, iucn_status, sensitive
+                                       FROM species WHERE taxon_key IN (SELECT taxon_key FROM published_animals)""").fetchall()}
     data_end = max(a[12] for a in animals)
     index = {
         "generated": now.isoformat(timespec="seconds"),

@@ -1,0 +1,24 @@
+{
+ "animal_id": "movebank:move.1022:4116 9E03",
+ "species": "Whooper swan",
+ "scientific_name": "Cygnus cygnus",
+ "based_on": {
+  "last_date": "2019-12-27"
+ },
+ "facts": {
+  "first_date": "Aug 6, 2016",
+  "last_date": "Dec 27, 2019",
+  "days_tracked": "1237 days",
+  "path_km": "21,100 km",
+  "max_displacement_km": "2,280 km",
+  "farthest_date": "Oct 16, 2018",
+  "northernmost_lat": "68.4°N",
+  "southernmost_lat": "52.8°N",
+  "longest_gap_days": "20 days",
+  "release_site": "Poparaju pond, Alsunga (Latvia)",
+  "sex": "female",
+  "species_rank_days": "the longest track among the 11 whooper swan tracks on this map",
+  "species_rank_distance": "the second longest distance from its starting point among the 11 whooper swan tracks on this map"
+ },
+ "species_context": []
+}

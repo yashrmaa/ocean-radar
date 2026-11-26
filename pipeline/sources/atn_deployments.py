@@ -55,7 +55,7 @@ def load(con) -> None:
                         meta.get("animal_common_name"), meta.get("animal_scientific_name"),
                         meta.get("citation"), f"{ERDDAP}/tabledap/{ds}.html"))
     con.executemany(f"""
-        INSERT INTO stg_animal VALUES (?, '{SOURCE_ID}', ?, ?, ?, ?, NULL, NULL, NULL, ?, ?)
+        INSERT INTO stg_animal (animal_id, source_id, native_id, program, species_label, scientific_name, sex, stage, site, citation, dataset_url) VALUES (?, '{SOURCE_ID}', ?, ?, ?, ?, NULL, NULL, NULL, ?, ?)
     """, animals)
 
     files = [str(DIR / f"{ds}.csv") for ds in ids]

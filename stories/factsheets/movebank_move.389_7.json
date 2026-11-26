@@ -1,0 +1,25 @@
+{
+ "animal_id": "movebank:move.389:7",
+ "species": "Eurasian griffon vulture",
+ "scientific_name": "Gyps fulvus",
+ "based_on": {
+  "last_date": "2012-05-22"
+ },
+ "facts": {
+  "first_date": "Sep 14, 2010",
+  "last_date": "May 22, 2012",
+  "days_tracked": "616 days",
+  "path_km": "18,520 km",
+  "max_displacement_km": "1,690 km",
+  "farthest_date": "Dec 6, 2010",
+  "northernmost_lat": "31.6°N",
+  "southernmost_lat": "17.6°N",
+  "longest_gap_days": "56 days",
+  "release_site": "tags deployed in Judean and Negev deserts in Israel",
+  "sex": "female",
+  "stage": "adult",
+  "species_rank_days": "the longest track among the 9 eurasian griffon vulture tracks on this map",
+  "species_rank_distance": "the second longest distance from its starting point among the 9 eurasian griffon vulture tracks on this map"
+ },
+ "species_context": []
+}

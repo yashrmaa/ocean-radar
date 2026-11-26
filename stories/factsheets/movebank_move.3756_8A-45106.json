@@ -1,0 +1,23 @@
+{
+ "animal_id": "movebank:move.3756:8A-45106",
+ "species": "Northern boobook",
+ "scientific_name": "Ninox japonica",
+ "based_on": {
+  "last_date": "2025-07-01"
+ },
+ "facts": {
+  "first_date": "Aug 1, 2024",
+  "last_date": "Jul 1, 2025",
+  "days_tracked": "334 days",
+  "path_km": "10,810 km",
+  "max_displacement_km": "4,490 km",
+  "farthest_date": "Dec 31, 2024",
+  "northernmost_lat": "38.3°N",
+  "southernmost_lat": "4.1°N",
+  "longest_gap_days": "8 days",
+  "release_site": "Tohoku region, Japan",
+  "sex": "male",
+  "stage": "adult"
+ },
+ "species_context": []
+}

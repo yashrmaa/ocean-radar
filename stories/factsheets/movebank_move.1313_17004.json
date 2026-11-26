@@ -1,0 +1,24 @@
+{
+ "animal_id": "movebank:move.1313:17004",
+ "species": "Far Eastern curlew",
+ "scientific_name": "Numenius madagascariensis",
+ "based_on": {
+  "last_date": "2021-10-31"
+ },
+ "facts": {
+  "first_date": "Nov 21, 2017",
+  "last_date": "Oct 31, 2021",
+  "days_tracked": "1439 days",
+  "path_km": "71,500 km",
+  "max_displacement_km": "7,860 km",
+  "farthest_date": "Jul 19, 2021",
+  "northernmost_lat": "55.0°N",
+  "southernmost_lat": "12.5°S",
+  "longest_gap_days": "44 days",
+  "release_site": "Darwin, Australia",
+  "sex": "male",
+  "stage": "adult",
+  "species_rank_days": "the longest track among the 19 far eastern curlew tracks on this map"
+ },
+ "species_context": []
+}

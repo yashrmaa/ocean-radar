@@ -1,0 +1,25 @@
+{
+ "animal_id": "movebank:move.354:Jinthe",
+ "species": "Montagu's harrier",
+ "scientific_name": "Circus pygargus",
+ "based_on": {
+  "last_date": "2008-12-08"
+ },
+ "facts": {
+  "first_date": "Jun 25, 2007",
+  "last_date": "Dec 8, 2008",
+  "days_tracked": "532 days",
+  "path_km": "25,030 km",
+  "max_displacement_km": "4,510 km",
+  "farthest_date": "Oct 4, 2007",
+  "northernmost_lat": "53.5°N",
+  "southernmost_lat": "16.4°N",
+  "longest_gap_days": "25 days",
+  "release_site": "Western sub-population",
+  "sex": "female",
+  "stage": "adult",
+  "species_rank_days": "the second longest track among the 8 montagu's harrier tracks on this map",
+  "species_rank_distance": "the third longest distance from its starting point among the 8 montagu's harrier tracks on this map"
+ },
+ "species_context": []
+}

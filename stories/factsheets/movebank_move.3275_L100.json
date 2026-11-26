@@ -1,0 +1,22 @@
+{
+ "animal_id": "movebank:move.3275:L100",
+ "species": "Common kestrel",
+ "scientific_name": "Falco tinnunculus",
+ "based_on": {
+  "last_date": "2020-05-11"
+ },
+ "facts": {
+  "first_date": "Apr 1, 2019",
+  "last_date": "May 11, 2020",
+  "days_tracked": "405 days",
+  "path_km": "8,100 km",
+  "max_displacement_km": "1,540 km",
+  "farthest_date": "Dec 20, 2019",
+  "northernmost_lat": "39.1°N",
+  "southernmost_lat": "14.1°N",
+  "longest_gap_days": "37 days",
+  "sex": "male",
+  "stage": "adult"
+ },
+ "species_context": []
+}
