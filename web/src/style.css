@@ -108,3 +108,7 @@ button, input, select { font: inherit; color: inherit; }
   .time { min-width: 92px; }
   #speed { display: none; }
 }
+
+/* Arrow cursor over the map (MapLibre defaults to a grab hand); deck.gl switches to a pointer over animals. */
+.maplibregl-canvas-container.maplibregl-interactive { cursor: default; }
+.maplibregl-canvas-container.maplibregl-interactive:active { cursor: grabbing; }

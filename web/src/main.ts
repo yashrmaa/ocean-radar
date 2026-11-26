@@ -12,7 +12,7 @@ import { PathStyleExtension } from '@deck.gl/extensions';
 import type { Layer, PickingInfo } from '@deck.gl/core';
 
 import { esc, renderAbout, renderCard } from './card';
-import type { AnimalDetail, AnimalRow, Chunk, Group } from './data';
+import type { AnimalDetail, Chunk, Group } from './data';
 import { loadAnimal, loadChunk, loadIndex, makeClock } from './data';
 
 const COLORS: Record<Group, [number, number, number]> = {
@@ -38,7 +38,7 @@ interface TripData {
 
 const state = {
   now: 0, playing: true, speed: 45, mode: 'replay' as 'replay' | 'last',
-  groups: new Set<Group>(), selected: -1, detail: null as AnimalDetail | null,
+  groups: new Set<Group>(), selected: -1, hover: -1, detail: null as AnimalDetail | null,
 };
 
 async function main() {
@@ -57,7 +57,26 @@ async function main() {
     style: 'https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json',
     center: [-150, 20], zoom: 1.4, attributionControl: { compact: true },
   });
-  const overlay = new MapboxOverlay({ interleaved: false, layers: [] });
+  const overlay = new MapboxOverlay({
+    interleaved: false, layers: [],
+    pickingRadius: 10, // thin tracks are hard to hit; accept clicks within 10 px
+    // Fires only when no layer handled the click: empty map closes the card, like a map app.
+    onClick: (info: PickingInfo) => { if (animalAt(info) < 0 && state.selected >= 0) select(-1); },
+    onHover: (info: PickingInfo) => setHover(animalAt(info)),
+    getTooltip: (info: PickingInfo) => {
+      const i = animalAt(info);
+      if (i < 0 || i === state.selected) return null;
+      const a = index.animals[i], sp = index.species[String(a.sp)];
+      const who = [a.stage, a.sex].filter(Boolean).join(' ');
+      return {
+        html: `<b>${esc(sp.common)}</b><br><span>${esc([who, `${clock.fmt(a.s).slice(0, 4)}–${clock.fmt(a.e).slice(0, 4)}`].filter(Boolean).join(' · '))}</span>`,
+        style: { background: 'rgba(11,17,33,.95)', color: '#e8edfb', border: '1px solid #24304f',
+          borderRadius: '8px', padding: '6px 9px', font: '13px/1.35 system-ui, sans-serif', pointerEvents: 'none' },
+      };
+    },
+    getCursor: ({ isDragging, isHovering }: { isDragging: boolean; isHovering: boolean }) =>
+      isDragging ? 'grabbing' : isHovering ? 'pointer' : 'default',
+  } as any);
   map.addControl(overlay);
 
   // ---------- chunks ----------
@@ -129,7 +148,8 @@ async function main() {
     const fixes = d.track.filter((p) => p[3] === 0);
     return [
       new PathLayer({ id: 'sel-solid', data: solid, getPath: (p: [number, number][]) => p,
-        getColor: [255, 255, 255, 235], widthMinPixels: 2.5, jointRounded: true, capRounded: true }),
+        getColor: [255, 255, 255, 235], widthMinPixels: 2.5, jointRounded: true, capRounded: true,
+        pickable: true, onClick: onPick }),
       new PathLayer({ id: 'sel-gaps', data: gaps, getPath: (p: [number, number][]) => p,
         getColor: [255, 255, 255, 170], widthMinPixels: 1.5, getDashArray: [4, 4],
         extensions: [new PathStyleExtension({ dash: true })] } as any),
@@ -138,15 +158,54 @@ async function main() {
     ];
   }
 
-  // ---------- render ----------
+  // ---------- picking & hover ----------
+  // Which animal (index into index.animals) a picking result refers to, or -1.
+  function animalAt(info: PickingInfo): number {
+    const id = info.layer?.id ?? '';
+    if (!info.picked || info.index < 0) return -1;
+    if (id.startsWith('trips-')) return ((info.layer!.props.data as unknown) as TripData).animalOf[info.index] ?? -1;
+    if (id === 'heads') return (info.object as Head).i;
+    if (id === 'last') return info.object as number;
+    if (id === 'hover') return state.hover;
+    if (id.startsWith('sel-')) return state.selected;
+    return -1;
+  }
+
+  // Returning true marks the click handled, so the overlay's "empty map" handler doesn't run.
   const onPick = (info: PickingInfo) => {
-    const obj = info.object as Head | AnimalRow | undefined;
-    if (info.layer?.id.startsWith('trips-') && info.index >= 0) {
-      const td = (info.layer.props.data as unknown) as TripData;
-      select(td.animalOf[info.index]);
-    } else if (obj && 'i' in obj) select(obj.i);
-    else if (obj && 'id' in obj) select(index.animals.indexOf(obj));
+    const i = animalAt(info);
+    if (i >= 0 && i !== state.selected) select(i);
+    return i >= 0;
   };
+
+  function setHover(i: number) {
+    if (i === state.hover) return;
+    state.hover = i;
+    // deck.gl's getCursor doesn't reach MapLibre's canvas in overlay mode, so set it here.
+    map.getCanvas().style.cursor = i >= 0 ? 'pointer' : '';
+    render();
+  }
+
+  // The hovered animal's whole track within the loaded years, drawn brighter on top.
+  function hoverLayer(): Layer | null {
+    const i = state.hover;
+    if (i < 0 || i === state.selected || state.mode !== 'replay') return null;
+    const path: [number, number][] = [];
+    for (const c of [...loaded.values()].sort((a, b) => a.year - b.year)) {
+      const seg = c.animals.find(([k]) => k === i);
+      if (!seg) continue;
+      for (let j = seg[1]; j < seg[1] + seg[2]; j++) path.push([c.lon[j], c.lat[j]]);
+    }
+    if (path.length < 2) return null;
+    const [r, g, b] = COLORS[groupOf(i)];
+    return new PathLayer({
+      id: 'hover', data: [path], getPath: (p: [number, number][]) => p,
+      getColor: [Math.min(255, r + 60), Math.min(255, g + 60), Math.min(255, b + 60), 235],
+      widthMinPixels: 3, jointRounded: true, capRounded: true, pickable: true, onClick: onPick,
+    });
+  }
+
+  // ---------- render ----------
 
   function render() {
     const layers: Layer[] = [];
@@ -158,8 +217,8 @@ async function main() {
         layers.push(new TripsLayer({
           id: `trips-${c.year}`, data: tripData(c) as any, _pathType: 'open',
           currentTime: state.now, trailLength: TRAIL_DAYS, fadeTrail: true,
-          widthMinPixels: 1.6, jointRounded: true, capRounded: true,
-          opacity: state.selected >= 0 ? 0.3 : 0.85, pickable: true, onClick: onPick,
+          widthMinPixels: 2, jointRounded: true, capRounded: true,
+          opacity: state.selected >= 0 ? 0.5 : 0.85, pickable: true, onClick: onPick,
         } as any));
       }
       const hs = heads(state.now);
@@ -168,24 +227,31 @@ async function main() {
         id: 'heads', data: hs, getPosition: (h) => h.pos,
         getFillColor: (h) => [...COLORS[groupOf(h.i)], 255] as [number, number, number, number],
         getLineColor: [255, 255, 255, 170], stroked: true, lineWidthMinPixels: 0.6,
-        radiusMinPixels: 3.2, radiusMaxPixels: 7, pickable: true, onClick: onPick,
+        radiusMinPixels: 3.5, radiusMaxPixels: 7, pickable: true, onClick: onPick,
         updateTriggers: { getFillColor: groupKey() },
       }));
     } else {
-      const rows = index.animals.filter((_, i) => state.groups.has(groupOf(i)));
+      const rows = index.animals.map((_, i) => i).filter((i) => state.groups.has(groupOf(i)));
       count = rows.length;
-      layers.push(new ScatterplotLayer<AnimalRow>({
-        id: 'last', data: rows, getPosition: (a) => a.ll,
-        getFillColor: (a) => {
-          const age = (tEnd - a.e) / 365;
-          return [...COLORS[index.species[String(a.sp)].grp], Math.round(255 * Math.max(0.18, 1 - age / 10))] as any;
+      layers.push(new ScatterplotLayer<number>({
+        id: 'last', data: rows, getPosition: (i) => index.animals[i].ll,
+        getFillColor: (i) => {
+          const a = index.animals[i], age = (tEnd - a.e) / 365;
+          const alpha = i === state.hover ? 255 : Math.round(255 * Math.max(0.18, 1 - age / 10));
+          return [...COLORS[groupOf(i)], alpha] as any;
         },
-        radiusMinPixels: 2.6, radiusMaxPixels: 6, pickable: true, onClick: onPick,
-        updateTriggers: { getFillColor: groupKey() },
+        getRadius: (i) => (i === state.hover || i === state.selected ? 2 : 1),
+        radiusUnits: 'pixels', radiusScale: 3.2, stroked: true, lineWidthMinPixels: 0.5,
+        getLineColor: (i) => (i === state.selected ? [255, 255, 255, 255] : [0, 0, 0, 0]),
+        pickable: true, onClick: onPick,
+        updateTriggers: { getFillColor: [groupKey(), state.hover], getRadius: [state.hover, state.selected],
+          getLineColor: state.selected },
       }));
     }
+    const hl = hoverLayer();
+    if (hl) layers.push(hl);
     layers.push(...selectedLayers());
-    overlay.setProps({ layers, getCursor: ({ isHovering }) => (isHovering ? 'pointer' : 'grab') });
+    overlay.setProps({ layers });
     $('date').textContent = state.mode === 'replay' ? clock.fmt(state.now) : `Data to ${index.data_end}`;
     $('count').textContent = state.mode === 'replay'
       ? `${count.toLocaleString()} animals at sea`
@@ -341,6 +407,9 @@ async function main() {
   }
 
   // ---------- start ----------
+  // Dev-only handle for debugging in the console (stripped from production builds).
+  if (import.meta.env.DEV) Object.assign(window, { __radar: { map, state, index, heads: () => heads(state.now) } });
+
   async function applyHash(initial: boolean) {
     const p = new URLSearchParams(location.hash.slice(1));
     const t = p.get('t');
